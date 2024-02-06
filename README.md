@@ -1,4 +1,4 @@
-# QBasic
+# QBasic.com
 
 I posit the following question:
 
