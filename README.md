@@ -30,7 +30,7 @@ Some of these questions are pretty easy to answer, while others are certainly in
 
 ## Progress?
 
-![2024-01-22](videos/2024-01-22_14-12-57.mp4)
+![[2024-01-22]([2024-01-22](videos/2024-01-22_14-12-57.mp4))](images/2024-01-22_14-12-57.png)
 
 The above video demonstrates some of the overall UI elements; screen layout, main menu functionality and very initial (minimal) work on some fo the dialogs (message boxes) as well as showing the initial work on the "multiple windows" feature.
 
