@@ -10,7 +10,7 @@ In my mind, the be considered a *true* replacement to QBasic a few things must b
 
 - The overall editing/using experience should be nearly identical to the original; and by nearly I mean that if there are any changes - those should be in the way of improvements, not changes for the sake of changes.
 - Which leads me to this point... I should be able to grab any published material for QBasic and the material should be applicable to the replacement; meaning it should "just work". If there are any exceptions where something "doesn't work"; it should be because it simply isn't possible, not because some arbitrary choice was made.
-- It should be fast... at least as fast as the original, in all ways (but one would hope faster).
+- It should be fast... at least as fast as the original, in all ways (but one would hope faster). 🤠
 
 Which raises further questions such as:
 
@@ -82,7 +82,9 @@ Why not?
 
 One would think so, but truthfully the answer is no. There were two projects in the past that set out to do this. One of those is [FreeBASIC](https://www.freebasic.net/) and has since evolved to a point where it really isn't anything close to what QBasic was. Please don't misunderstand me, I think [FreeBASIC](https://www.freebasic.net/) is an incredible product and highly recommend giving it a close look, but it certainly isn't a replacement to QBasic. The other project was originally created with a very similar set of questions as I pose above by someone named Rob Galleon at some point in the mid-2000's and created what eventually became known as [QB64](https://qb64.com/). The goal was for it to be "designed 'from the ground up' to be 100% compatible with QB4.5/QBASIC" and, unfortunately, never really met that goal. And like a lot of projects, scope creep drove the project forward into becoming, well, "something else". Again, not saying that it is a bad thing... just that it isn't a replacement to QBasic. At some point I imagine the pressure from the community to take the project into different directions than what he originally intended and the constant onslaught of this pressure led to his walking away from the project. As it currently stands, the project has evolved enough into its *own thing* that any sort of course-correction to get it back on track to reach the originally stated goal would cause enough "breaks" that it really doesn't make sense to pursue. It is what it is and for those that enjoy what it is, it's great for them. But, as I stated, it isn't a replacement for QBasic.
 
-And besides, why should the fact (even if true) of someone else doing this prevent me from wanting to give it a solid try? 🤠
+### No, really... why are you doing this?
+
+Even if someone else has already done this, I want to give it a solid go and "do it my way"... as a bit of a respect and homage to the original. That's reason enough for me. 🤠
 
 ### How long have you been working on this?
 
@@ -100,4 +102,4 @@ It's not ready just yet, but if you'd like to be involved sooner rather than lat
 
 ### How to contact you?
 
-The best place to reach out to me is on the [gotBASIC Discord](https://discord.gg/AYcgDwERUU) server; here's the [invite](https://discord.gg/AYcgDwERUU).
+The best place to reach out to me is on the [gotBASIC Discord](https://discord.gg/AYcgDwERUU) server; here's the [invite](https://discord.gg/AYcgDwERUU). There is also [page on Facebook](https://www.facebook.com/QBasicByCorySmith) and I check in pretty pretty regularly on the [BASIC Programming Language (Facebook) Group](https://www.facebook.com/groups/2057165187928233).
