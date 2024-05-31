@@ -1,6 +1,8 @@
-# QBasic.com
+# Community QBasic
 
-I posit the following question:
+![2024-01-22](images/community.qbasic.png)
+
+It all started with the following question...
 
 > What if there were a *true* replacement to QBasic?
 
@@ -12,7 +14,7 @@ In my mind, the be considered a *true* replacement to QBasic a few things must b
 - Which leads me to this point... I should be able to grab any published material for QBasic and the material should be applicable to the replacement; meaning it should "just work". If there are any exceptions where something "doesn't work"; it should be because it simply isn't possible, not because some arbitrary choice was made.
 - It should be fast... at least as fast as the original, in all ways (but one would hope faster). 🤠
 
-Which raises further questions such as:
+Which raises many additional questions such as:
 
 - What would it look like?
 - How fast could it run?
