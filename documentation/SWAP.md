@@ -13,15 +13,12 @@ Any type variable may be swapped (integer, single-precision, double-precision, s
 ## Example
 
 ```vb
-10 A$ = "ONE ": B$ = "ALL ": C$ = "FOR "
-20 PRINT A$ C$ B$
-30 SWAP A$, B$
-40 PRINT A$ C$ B$
+a = 1
+b = 2
+SWAP a, b
+PRINT a, b
 ```
 
-```text
-ONE FOR ALL
-ALL FOR ONE
+```txt
+2        1
 ```
-
-Line 30 swaps the values in the *A$* and *B$* strings.
