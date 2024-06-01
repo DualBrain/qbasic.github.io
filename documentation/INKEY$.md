@@ -1,20 +1,24 @@
 # INKEY$
 
-To return one character read from the keyboard.
+Reads a character from the keyboard.
 
 ## Syntax
 
-`v$=INKEY$`
+v$=`INKEY$`
 
 ## Comments
 
-If no character is pending in the keyboard buffer, a null string (length zero) is returned.
+`INKEY$` returns a null string if no character is present, a 1-byte string for standard keys and a 2-byte string for extended keys.
 
-If several characters are pending, only the first is returned. The string will be one or two characters in length.
+For extended keys, the first character is a null character (ASCII 0) and the second is the keyboard scan code.
 
-Two character strings are used to return the extended codes described in Appendix C of the BASIC User's Guide. The first character of a two character code is zero.
+`INKEY$` does not echo the character to the screen.
 
-No characters are displayed on the screen, and all characters except the following are passed to the program:
+If several characters are pending, only the first is returned.
+
+Two character strings are used to return the extended codes described in [Appendix C](scancodes) of the BASIC User's Guide.
+
+All characters except the following are passed to the program:
 
 CTRL-BREAK
 CTRL-NUM LOCK
@@ -25,25 +29,19 @@ PRTSCR
 ## Example
 
 ```vb
-10 CLS: PRINT "PRESS RETURN
-20 TIMELIMIT% = 1000
-30 GOSUB 1010
-40 IF TIMEOUT% THEN PRINT "TOO LONG" ELSE PRINT "GOOD SHOW"
-50 PRINT RESPONSE$
-60 END
-.
-.
-.
-1000 REM TIMED INPUT SUBROUTINE
-1010 RESPONSE$=""
-1020 FOR N%=1 TO TIMELIMIT%
-1030 A$=INKEY$:IF LEN(A$)=0 THEN 1060
-1040 IF ASC(A$)=13 THEN TIMEOUT%=0: RETURN
-1050 RESPONSE$=RESPONSE$+A$
-1060 NEXT N%
-1070 TIMEOUT%=1: RETURN
+PRINT "Press a series of keys - F10 to stop"
+DO
+  DO
+    k$ = INKEY$
+  LOOP WHILE k$ = ""
+  IF LEN(k$) = 1 THEN
+    PRINT "Letter", k$
+  ELSE
+    PRINT "Scan code", ASC(MID$(k$, 2, 1))
+  END IF
+LOOP UNTIL MID$(k$, 2, 1) = CHR$(68) ' F10 scan code
 ```
 
-When this program is executed, and if the RETURN key is pressed before 1000 loops are completed, then "GOOD SHOW" is printed on the screen. Otherwise, "TOO LONG" is printed.
+## See Also
 
-Since an `INKEY$` statement scans the keyboard only once, place `INKEY$` statements within loops to provide adequate response times for the operator.
+- [ASC](ASC), [CHR$](CHR$), [LEN](LEN)

@@ -1,29 +1,25 @@
 # INT
 
-To truncate an expression to a whole number.
+Returns the next integer value smaller than or equal to the specified numeric expression.
 
 ## Syntax
 
-`INT(x)`
+`INT`(*numeric_expression*)
 
 ## Comments
 
-Negative numbers return the next lowest number. The [FIX](FIX) and [CINT](CINT) functions also return integer values.
+*numeric_expression* is any numeric expression.
 
 ## Example
 
 ```vb
-PRINT INT(98. 89)
+PRINT INT(99.8), INT(99.1), INT(-99.2)
 ```
 
 ```text
- 98
+99       99      -100
 ```
 
-```vb
-PRINT INT(-12. 11)
-```
+## See Also
 
-```text
- -13
-```
+- [FIX](FIX)

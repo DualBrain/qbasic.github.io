@@ -1,24 +1,28 @@
 # IOCTL$
 
-To allow BASIC to read a "control data" string from an open character device driver.
+Returns a control string from a device driver.
 
 ## Syntax
 
-`IOCTL$([#]file number)`
+`IOCTL$`([#]*file_number*)
 
 ## Comments
 
-*file number* is the file number open to the device.
+*file_number* is the file number assigned to the device in its [OPEN](OPEN) statement.
 
 The `IOCTL$` function is generally used to get acknowledgement that an [IOCTL](IOCTL) statement succeeded or failed. It is also used to get device information, such as device width after an [IOCTL](IOCTL) statement requests it.
 
 ## Example
 
 ```vb
-10 'GW is a possible command
-20 'for get device width
-30 OPEN "\DEV\MYLPT" AS#1
-40 IOCTYL#1, "GW"
-50 'Save it in WID
-60 WID=VAL(IOCTL$(#1))
+'GW is a possible command
+'for get device width
+OPEN "\DEV\MYLPT" AS#1
+IOCTYL#1, "GW"
+'Save it in WID
+WID=VAL(IOCTL$(#1))
 ```
+
+## See Also
+
+- [IOCTL](IOCTL)

@@ -1,29 +1,33 @@
 # INSTR
 
-To search for the first occurrence of string *y$* in *x$*, and return the position at which the string is found.
+Returns the location of the first occurrence of a string within another string.
 
 ## Syntax
 
-`INSTR([n,] x$, y$)`
+`INSTR`([ *start_position* ], *search_string*, *substring*)
 
 ## Comments
 
-Optional offset *n* sets the position for starting the search. The default value for *n* is `1`. If *n* equals `0`, the error message `Illegal argument in line number` is returned. *n* must be within the range of `1` to `255`. If *n* is out of this range, an `Illegal Function Call` error is returned.
+`INSTR` returns the character position of *substring* within *search_string*.
 
-`INSTR` returns `0` if:
+*start_position* is the character position within *search_string* where the search should begin. If you omit *start_position*, `INSTR` begins as position 1.
 
-- `n > LEN(x$)`
-- *x$* is null
-- *y$* cannot be found
+IF `INSTR` locates the substring, it returns an index to the starting character. Otherwise, `INSTR` returns 0.
 
-If *y$* is null, `INSTR` returns *n*.
-
-*x$* and *y$* may be string variables, string expressions, or string literals.
+## Example
 
 ```vb
-10 X$ = "ABCDEBXYZ"
-20 Y$ = "B"
-30 PRINT INSTR(X$, Y$); INSTR(4, X$, Y$)
+PRINT "RING in SUBSTRING", INSTR("SUBSTRING", "RING")
+PRINT "X in STRING", INSTR("STRING", "X")
 ```
 
-The interpreter searches the string `"ABCDFBXYZ"` and finds the first occurrence of the character `B` at position `2` in the string. It then starts another search at position `4` (`D`) and finds the second match at position `6` (`B`).
+Results in:
+
+```txt
+RING in SUBSTRING 6
+X in STRING       0
+```
+
+## See Also
+
+- [LEFT$](LEFT$), [LEN](LEN), [MID$](MID$), [RIGHT$](RIGHT$)
