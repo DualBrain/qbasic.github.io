@@ -1,14 +1,14 @@
 # COM(n)
 
-To enable or disable trapping of communications activity to the specified communications adapter.
+Enables or disables data communications event trapping on the specified port.
 
 ## Syntax
 
-`COM(n) ON`
+`COM`(*n*) `ON`
 
-`COM(n) OFF`
+`COM`(*n*) `OFF`
 
-`COM(n) STOP`
+`COM`(*n*) `STOP`
 
 ## Comments
 
@@ -19,6 +19,13 @@ Execute a `COM(n) ON` statement before [ON COM(n)](ON-COM(n)) statement to allow
 With `COM(n) OFF`, no trapping takes place, and all communications activity will be lost.
 
 With `COM(n) STOP`, no trapping takes place. However, any communication that takes place will be remembered so that immediate trapping will occur when `COM(n) ON` is executed.
+
+## Example
+
+```vb
+ON COM(1) GOSUB ComHandler
+COM(1) ON
+```
 
 ## See Also
 

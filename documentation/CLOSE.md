@@ -1,33 +1,31 @@
 # CLOSE
 
-To terminate input/output to a disk file or a device.
+Closes one or more files or devices opened by the [OPEN](OPEN) statement.
 
 ## Syntax
 
-`CLOSE [[#]filenumber[,[#]filenumber]...]`
+`CLOSE` [[ # ]*file_number*[, [ # ]*file_number*]]...
 
 ## Comments
 
-*filenumber* is the number under which the file was opened. The association between a particular file or device and file number terminates upon execution of a `CLOSE` statement. The file or device may then be reopened using the same or a different file number. A `CLOSE` statement with no file number specified closes all open files and devices.
+*file_number* is the file number assigned to the file or device in its [OPEN](OPEN) statement.
 
-A `CLOSE` statement sent to a file or device opened for sequential output writes the final buffer of output to that file or device.
+You can specify more than one file number in a single `CLOSE` statement.
 
-The [END](END), [NEW](NEW), [RESET](RESET), [SYSTEM](SYSTEM), or [RUN](RUN) and [LOAD](LOAD) (without `r` option) statements always close all files or devices automatically. [STOP](STOP) does not close files.
+Once you close a file number, you cannot use the file number for read or write operations until you open a new file.
+
+The [CLEAR](CLEAR), [END](END), [RESET](RESET), [RUN](RUN) and [SYSTEM](SYSTEM) statements close your files automatically. For housekeeping purposes, however, you should issue a corresponding `CLOSE` statement for each [OPEN](OPEN) statement in your program.
+
+`CLOSE` with no arguments closes all open files and devices.
 
 ## Examples
 
 ```vb
-250 CLOSE
+OPEN "TEST.DAT" FOR OUTPUT AS #1
+PRINT #1, "This is a test"
+CLOSE #1
 ```
-
-This closes all open devices and files.
-
-```vb
-300 CLOSE 1, #2, #3
-```
-
-Closes all files and devices associated with file numbers `1`, `2`, and `3`.
 
 ## See Also
 
-* [END](END), [NEW](NEW), [RESET](RESET), [SYSTEM](SYSTEM), [RUN](RUN), [LOAD](LOAD), [STOP](STOP)
+* [OPEN](OPEN), [RESET](RESET)

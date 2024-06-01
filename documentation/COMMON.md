@@ -1,32 +1,39 @@
 # COMMON
 
-To pass variables to a chained program.
+Defines variables as global within a module or between chained programs.
 
 ## Syntax
 
-`COMMON variables`
+`COMMON` `SHARED` *variable_list*
 
 ## Comments
 
-*variables* are one or more variables, separated by commas, that you want to pass to the chained program.
+The `SHARED` keyword states that the specified variables are shared by all subprograms and functions in a module.
 
-The `COMMON` statement is used in conjunction with the [CHAIN](chain) statement.
+*variable_list* is the list of global variables with variable names separated by commas. QBasic allows you to specify variables as:
 
-`COMMON` statements may appear anywhere in a program, although it is recommended that they appear at the beginning.
+*variable_name* [ () ] [ `AS` *type* ]
 
-Any number of `COMMON` statements may appear in a program, but the same variable cannot appear in more than one `COMMON` statement. To pass all variables using the [CHAIN](chain) statement, use the all option, and omit the `COMMON` statement.
-
-Place parentheses after the variable name to indicate array variables.
+`COMMON` statements must appear before any executable statements in your program. QBasic associates variables in common blocks by position, not by name.
 
 ## Example
 
 ```vb
-COMMON A, B, C, D(), G$
-CHAIN "A:PROG3"
+COMMON a, b, c
+a = 1: b = 2: c = 3
+CHAIN "COMMON.BAS"
+
+'Code for COMMON.BAS
+COMMON x, y, z
+PRINT x, y, z
 ```
 
-This example chains to program `PROG3.BAS` on disk drive A:, and passes the array `D` along with the variables `A`, `B`, `C`, and string `G$`.
+Results in the following:
+
+```txt
+1    2    3
+```
 
 ## See Also
 
-* [CHAIN](CHAIN)
+* [STATIC](STATIC)

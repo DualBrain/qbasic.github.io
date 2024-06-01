@@ -1,14 +1,18 @@
 # CINT
 
-To round numbers with fractional portions to the next whole number or integer.
+Rounds a numeric expression to an integer value.
 
 ## Syntax
 
-`CINT(x)`
+`CINT`(*numeric_expression*)
 
 ## Comments
 
-If `x` is not within the  range of `-32768` to `32767`, an `Overflow` error occurs. See the [FIX](FIX) and [INT](INT) functions, both of which return integers.
+If *numeric_expression* is not within the range of `-32768` to `32767`, an `Overflow` error occurs.
+
+`CINT` rounds; it does not truncate.
+
+See the [FIX](FIX) and [INT](INT) functions, both of which return integers.
 
 ## Examples
 
@@ -24,8 +28,8 @@ PRINT CINT(45.67)
 
 ## Note
 
- See the [CDBL](CDBL) and [CSNG](CSNG) functions for converting numbers to the double-precision and single-precision data types, respectively.
+See the [CDBL](CDBL), [CLNG](CLNG) and [CSNG](CSNG) functions for converting numbers to the double-precision and single-precision data types, respectively.
 
 ## See Also
 
-* [PRINT](PRINT), [FIX](FIX), [INT](INT), [CDBL](CDBL), [CSNG](CSNG)
+* [CDBL](CDBL), [CLNG](CLNG), [CSNG](CSNG), [FIX](FIX), [INT](INT), [PRINT](PRINT)

@@ -1,32 +1,36 @@
 # COS
 
-To return the cosine of the range of `1x1`.
+Returns the cosine of the specified angle.
 
 ## Syntax
 
-`COS(x)`
+`COS`(*angle*)
 
 ## Comments
 
-`x` must be the radians. `COS` is the trigonometric cosine function. To convert from degrees to radians, multiply by `π/180`. `COS(x)` is calculated in single precision.
+*angle* is a numeric expression that specifies an angle in radians.
+
+You can express an angle in radians or degrees. The QBasic trigonometric routines support only radians. To convert from degrees to radians, use the following equation:
+
+*radians* = 3.141593 * (*degrees*/180)
 
 ## Examples
 
 ```vb
-10 X=2*COS(.4)
-20 PRINT X
+angle = .785
+PRINT "Cosine of"; angle; "is"; COS(angle)
 ```
 
 ```text
- 1.842122
+Cosine of .785 is .7073882
 ```
 
 ```vb
-10 PI=3.141593
-20 PRINT COS(PI)
-30 DEGREES=180
-40 RADIANS=DEGREES*PI/180
-50 PRINT COS(RADIANS)
+PI=3.141593
+PRINT COS(PI)
+DEGREES=180
+RADIANS=DEGREES*PI/180
+PRINT COS(RADIANS)
 ```
 
 ```text
@@ -36,4 +40,4 @@ To return the cosine of the range of `1x1`.
 
 ## See Also
 
-* [PRINT](PRINT)
+* [ATN](ATN), [SIN](SIN), [TAN](TAN)

@@ -4,33 +4,43 @@ To draw a circle, ellipse, and angles on the screen during use of the Graphics m
 
 ## Syntax
 
-`CIRCLE(xcenter, ycenter), radius[,[color][,[start],[end][,aspect]]]`
+`CIRCLE` [ `STEP` ](*x*, *y*), *radius*[, [ *color* ][,[ *start_angle* ],[ *end_angle* ][, *aspect_ratio* ]]]
 
 ## Comments
 
-*xcenter* and *ycenter* are the x- and y- coordinates of the center of the ellipse, and *radius* is the radius (measured along the major axis) of the ellipse. The quantities *xcenter* and *ycenter* can be expressions. The center attributes can use either absolute or relative coordinates.
+`STEP` is an optional keyword that tells `CIRCLE` that the *x* and *y* values are offsets from the current graphics cursor position.
 
-*color* specifies the color of the ellipse. Its value depends on the current screen mode. See the [COLOR](COLOR) and [SCREEN](SCREEN) statements for more information on using colors in different screen modes. In the high-resolution mode, 0 indicates black and 1 indicates white. The default for the high resolution mode is 1.
+*x* and *y* are the coordinates of the circle's center.
 
-The *start* and *end* angle parameters are radian arguments between -2π and 2π which specify where the drawing of the ellipse is to begin and end. If *start* or *end* is negative, the ellipse is connected to the center point with a line, and the angles are treated as if they are positive (note that this is different from adding 2π).
+*color* is the border color for the circle. The circle is not filled.
 
-*aspect* describes the ratio of the x radius to the y radius (x:y). The default aspect ratio depends on the screen mode, but gives a visual circle in either graphics mode, assuming a standard monitor screen aspect ratio of 4:3. If the aspect ratio is less than 1, then the radius is given in x-pixels. If it is greater than 1, the radius is given in y-pixels. In many cases, an aspect ratio of 1 gives better ellipses in the medium-resolution mode. This also causes the ellipse to be drawn faster. The start angle may be less than the end angle.
+*start_angle* is the starting angle in radians for the arc. The default is 0.
+
+*end_angle* is the ending angle in radians for the arc. The default is 2π.
+
+*aspect_ratio* is the ratio of the length of the *y* axis to the length of the *x* axis. By changing the aspect ratio, you can create ellipses.
 
 ## Examples
 
 ```vb
-10 SCREEN1: CIRCLE(100,100), 50
+' Fill the screen with random circles
+SCREEN 1
+FOR i = 1 TO 100
+  x = INT(320 * RND)
+  y = INT(200 * RND)
+  RADIUS = INT(100 * RND)
+  CIRCLE (x,y), RADIUS
+NEXT
+SCREEN 0
 ```
 
-Draws a circle of radius 50, centered at graphics points 100x and 100y.
-
 ```vb
-1 ' This will draw 17 ellipses
-10 CLS
-20 SCREEN 1
-30 FOR R=160 TO 0 STEP-10
-40 CIRCLE (160,100),R,,,,5/18
-50 NEXT
+' This will draw 17 ellipses
+CLS
+SCREEN 1
+FOR R=160 TO 0 STEP-10
+  CIRCLE (160,100),R,,,,5/18
+NEXT
 ```
 
 ```vb
@@ -61,6 +71,4 @@ Draws a circle of radius 50, centered at graphics points 100x and 100y.
 
 ## See Also
 
-* [COLOR](COLOR), [SCREEN](SCREEN), [CLS](CLS), [FOR...NEXT](FOR...NEXT)
-* [GOTO](GOTO), [IF...THEN](IF...THEN), [GOSUB](GOSUB), [RETURN](RETURN)
-* [LINE](LINE), [INKEY$](INKEY$), [KEY](KEY)
+- [COLOR](COLOR), [DRAW](DRAW), [LINE](LINE), [PAINT](PAINT), [PRESET](PRESET), [PSET](PSET), [SCREEN](SCREEN)

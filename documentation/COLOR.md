@@ -1,20 +1,28 @@
 # COLOR
 
-To select display colors.
+Set the screen color.
 
 ## Syntax
 
-`COLOR [foreground][,[background][,border]]`
+`COLOR` [ *foreground* ][,[ *background* ][, *border* ]]
+  (Screen mode 0)
 
-`COLOR [background][,[palette]]`
+`COLOR` [ *background* ][,[ *palette* ]]
+  (Screen mode 1)
 
-`COLOR [foreground][,[background]]`
+`COLOR` [ *foreground* ][,[ *background* ]]
+  (Screen mode 7-10)
+
+`COLOR` [ *foreground* ]
+  (Screen mode 4, 12, 13)
 
 ## Comments
 
-In general, `COLOR` allows you to select the foreground and background colors for the display. In [SCREEN](SCREEN) `0` a border color can also be selected. In [SCREEN][SCREEN] `1` no foreground color can be selected, but one of two four-color palettes can be selected for use with graphics statements. The different syntaxes and effects that apply to the various screen modes are described below:
+The `COLOR` statement allows you to set text foreground and background colors as well as color palettes in graphics mode.
 
-### SCREEN 0 
+See the [SCREEN](SCREEN) statement for specifics on each screen mode.
+
+### SCREEN 0
 
 Modifies the current default text foreground and background colors, and the screen border. The *foreground* color must be an integer expression in the range 0-31. It is used to determine the "foreground" color in text mode, which is the default color of text. Sixteen colors can be selected with the integers 0-15. A blinking version of each color can be selected by adding 16 to the color number; for example, a blinking color 7 is equal to 7 + 16, or 23. Thus, the legal integer range for *foreground* is 0-31.
 
@@ -24,7 +32,7 @@ The *border* color is an integer expression in the range 0-15, and is the color 
 
 If no arguments are provided to `COLOR`, then the default color for background and border is black (`COLOR 0`), and for foreground, is as described in the [SCREEN](SCREEN) statement reference pages.
 
-### SCREEN 1	
+### SCREEN 1
 
 In mode 1, the `COLOR` statement has a unique syntax that includes a *palette* argument, which is an odd or even integer expression. This argument determines the set of display colors to use when displaying particular color numbers.
 
@@ -52,7 +60,7 @@ PALETTE 3,7  'Attribute 3 = color 15 (white)
 
 Note that a `COLOR` statement will override previous [PALETTE](PALETTE) statements.
 
-### SCREEN 2	
+### SCREEN 2
 
 No effect. An "Illegal function call" error message occurs if `COLOR` is used in this mode.
 
@@ -66,7 +74,9 @@ The foreground color may be the same as the background color, making displayed c
 
 With the Enhanced Graphics Adapter (EGA) installed, the [PALETTE](PALETTE) statement gives you flexibility in assigning different display colors to the actual color-number ranges for the *foreground*, *background*, and *border* colors discussed above. See the [PALETTE](PALETTE) statement reference pages for more details.
 
-For more information, see [CIRCLE](CIRCLE), [DRAW](DRAW), [LINE](LINE), [PAINT](PAINT), [PALETTE](PALETTE), [PRESET](PRESET), [PSET](PSET), and [SCREEN](SCREEN).
+### SCREEN 4, 12 and 13
+
+The foreground color is an attribute number. You cannot specify a background color.
 
 ## Example
 
@@ -86,6 +96,15 @@ SCREEN 9
 COLOR 1, 2     'foreground=1, background=2
 ```
 
+```vb
+SCREEN 0
+FOR fcolor = 0 TO 31
+  COLOR fcolor
+  PRINT "Current color is"; fcolor
+  INPUT dummy$
+NEXT fcolor
+```
+
 ## See Also
 
-* [CIRCLE](CIRCLE), [DRAW](DRAW), [LINE](LINE), [PAINT](PAINT), [PALETTE](PALETTE), [PRESET](PRESET), [PSET](PSET), [SCREEN](SCREEN)
+* [CIRCLE](CIRCLE), [DRAW](DRAW), [LINE](LINE), [PAINT](PAINT), [PALETTE](PALETTE), [PALETTE USING](PALETTE-USING), [POINT](POINT), [PRESET](PRESET), [PSET](PSET), [SCREEN](SCREEN)

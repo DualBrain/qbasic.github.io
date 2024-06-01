@@ -8,16 +8,18 @@ To sound the speaker at 800 Hz (800 cycles per second) for one-quarter of a seco
 
 ## Comments
 
-BEEP, CTRL-G, and `PRINT CHR$(7)` have the same effect.
+`BEEP` sounds a brief tone that is useful in getting the user's attention. `BEEP` does not affect the screen display.
+
+`BEEP`, CTRL-G, and `PRINT CHR$(7)` have the same effect.
 
 ## Examples
 
 ```vb
-2340 IF X>20 THEN BEEP
+IF X>20 THEN BEEP
 ```
 
 If X is out of range, the computer beeps.
 
 ## See Also
 
-* [PRINT](PRINT), [CHR$](CHR$)
+* [CHR$](CHR$), [PLAY](PLAY), [PRINT](PRINT), [SOUND](SOUND)

@@ -1,18 +1,22 @@
 # BLOAD
 
-To load an image file anywhere in user memory.
+Loads a memory-image file created by [BSAVE](BSAVE) statement into memory at the specified location.
 
 ## Syntax
 
-`BLOAD filename[,offset]`
+**BLOAD** *filename*[, *offset*]`
 
 ## Comments
 
-*filename* is a valid string expression containing the device and filename.
+*filename* is a string expression that specifies the file containing the image to load.
 
 *offset* is a valid numeric expression within the range of 0 to 65535. This is the offset into the segment, declared by the last [DEF SEG](DEF-SEG) statement, where loading is to start.
 
 If offset is omitted, the offset specified at [BSAVE](BSAVE) is assumed; that is, the file is loaded into the same location it was saved from.
+
+`BLOAD` and [BSAVE](BSAVE) work together to provide you with a quick and convenient way to load array values or graphics images.
+
+Do not use `BLOAD` with files created by *BASICA*. QBasic and `BASICA* store items differently in memory.
 
 ## Note
 
@@ -23,20 +27,19 @@ While `BLOAD` and [BSAVE](BSAVE) are useful for loading and saving machine langu
 ## Examples
 
 ```vb
-10 DEF SEG=&HB800
-20 BLOAD"PICTURE", 0
+' Create an array called SALES
+DIM sales (1 TO 500)
+
+' Set the segment address to the start of SALES
+DEF SEG = VARSEG(sales(1))
+
+' Load the array using BLOAD
+BLOAD "SALES.DAT", VARPTR(sales(1))
+
+' Return to the BASIC data segment
+DEF SEG
 ```
-
-The [DEF SEG](DEF-SEG) statement in line 10 points the segment at the screen buffer.
-
-The [DEF SEG](DEF-SEG) statement in line 10 and the offset of 0 in line 20 guarantee that the correct address is used.
-
-The `BLOAD` command in line 20 loads the file named picture into the screen buffer.
-
-## Note
-
-The [BSAVE](BSAVE) example in the next section illustrates how the file named picture is saved.
 
 ## See Also
 
-- [BSAVE](BSAVE), [DEF SEG](DEF-SEG)
+- [BSAVE](BSAVE), [DEF SEG](DEF-SEG), [VARPTR](VARPTR), [VARSEG](VARSEG)

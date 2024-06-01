@@ -1,20 +1,24 @@
 # CSNG
 
-To convert *x* to a single-precision number.
+Converts a numeric expression to a single-precision value.
 
 ## Syntax
 
-`CSNG(x)`
+`CSNG`(*numeric_expression*)
 
 ## Comments
 
-*x* must be a numeric expression (see the [CINT](CINT) and [CDBL](CDBL) functions).
+*numeric_expression* is any numeric expression.
+
+Using `CSNG` is equivalent to assigning the expression to a single-precision variable.
+
+Single-precision values have seven significant digits.
 
 ## Example
 
 ```vb
-10 A#=975.3421222#
-20 PRINT A#; CSNG(A#)
+A#=975.3421222#
+PRINT A#; CSNG(A#)
 ```
 
 ```text
@@ -23,4 +27,4 @@ To convert *x* to a single-precision number.
 
 ## See Also
 
-* [PRINT](PRINT), [CINT](CINT), [CDBL](CDBL)
+* [CINT](CINT), [CDBL](CDBL), [CLNG](CLNG)
