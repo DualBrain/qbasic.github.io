@@ -1,38 +1,25 @@
 # FILES
 
-To print the names of the files residing on the specified drive.
+Displays the names of files in the current or specified directory.
 
 ## Syntax
 
-`FILES [pathname]`
+`FILES` [ *string_expression* ]
 
 ## Comments
 
-If *pathname* is omitted, the command lists all files in the current directory of the selected drive. *pathname* may contain question marks (?) to match any character in the filename or extension. An asterisk (*) as the first character of the filename or extension will match any file or any extension.
+*string_expression* is a string expression that contains an MS-DOS file specification of the files to display. Wildcard characters can be used.
 
-This syntax also displays the name of the directory and the number of bytes in the file. When a tree-structured directory is used, two special symbols also appear.
-
-Subdirectories are denoted by `<DIR>` following the directory name.
+Ifr you omit a file specification, `FILES` displays the files in the current directory.
 
 ## Examples
 
 ```vb
-FILES
-FILES "*.BAS"
-FILES "B:*.*"
-FILES "TEST?.BAS"
+FILES           ' List all files
+FILES "*.BAS"   ' List all .BAS files
+FILES "A:*"     ' List all files on drive A
 ```
 
-`FILES` now allows pathnames. The directory for the specified path is displayed. If an explicit path is not given, the current directory is assumed.
+## See Also
 
-```vb
-FILES "ACCTS\"`
-```
-
-Lists all files in the directory named *accts*.
-
-```vb
-FILES "B:ACCTS\*.PAY"
-```
-
-Lists all files in the directory named *accts* that are on the diskette in drive B: and have the extension of *.PAY*.
+- [CHDIR](CHDIR), [KILL](KILL), [NAME](NAME)

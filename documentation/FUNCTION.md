@@ -4,13 +4,11 @@ Declares a user-defined function.
 
 ## Syntax
 
-```vb
-FUNCTION function_name [(arguments)][STATIC]
+`FUNCTION` *function_name* [ ( *arguments* ) ] [ `STATIC` ]
   ...
-  function_name = expression
+  *function_name* = *expression*
   ...
-END FUNCTION
-```
+`END FUNCTION`
 
 ## Notes
 

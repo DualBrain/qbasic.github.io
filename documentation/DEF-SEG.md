@@ -1,20 +1,16 @@
 # DEF SEG
 
-To assign the current segment address to be referenced by a subsequent [BLOAD](BLOAD), [BSAVE](BSAVE), [CALL](CALL), [PEEK](PEEK), [POKE](POKE), or [USR](USR).
+Sets the current segment address for subsequent [PEEK](PEEK) functions and [BLOAD](BLOAD), [BSAVE](BSAVE), [CALL ABSOLUTE](CALL-ABSOLUTE) and [POKE](POKE) statements.
 
 ## Syntax
 
-`DEF SEG [=address]`
+`DEF SEG` [ = *address* ]
 
 ## Comments
 
-*address* is a numeric expression within the range of 0 to 65535.
+Entry of any value outside the range (0-65535) results in an "Illegal Function Call" error, and the previous value is retained.
 
-The address specified is saved for use as the segment required by [BLOAD](BLOAD), [BSAVE](BSAVE), [CALL](CALL), [PEEK](PEEK) and [POKE](POKE) statements.
-
-Entry of any value outside the address range (0-65535) results in an "Illegal Function Call" error, and the previous value is retained.
-
-If the address option is omitted, the segment to be used is set to BASIC's data segment (DS). This is the initial default value.
+If the *address* option is omitted, the segment to be used is set to BASIC's data segment (DS). This is the initial default value.
 
 If you specify the address option, base it on a 16-byte boundary.
 
@@ -26,17 +22,7 @@ BASIC does not perform additional checking to assure that the resultant segment 
 
 ## Examples
 
-```vb
-10 DEF SEG=&HB800
-```
-
-Sets segment to screen buffer.
-
-```
-20 DEF SEG
-```
-
-Restores segment to BASIC DS.
+See [CALL ABSOLUTE](CALL-ABSOLUTE).
 
 ## Note
 
@@ -44,4 +30,4 @@ Restores segment to BASIC DS.
 
 ## See Also
 
-* [BLOAD](BLOAD), [BSAVE](BSAVE), [CALL](CALL), [PEEK](PEEK), [POKE](POKE), [USR](USR)
+* [BLOAD](BLOAD), [BSAVE](BSAVE), [CALL ABSOLUTE](CALL-ABSOLUTE), [PEEK](PEEK), [POKE](POKE)

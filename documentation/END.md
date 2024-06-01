@@ -1,6 +1,6 @@
 # END
 
-To terminate program execution, close all files, and return to command level.
+Ends a QBasic program.
 
 ## Syntax
 
@@ -8,22 +8,23 @@ To terminate program execution, close all files, and return to command level.
 
 ## Comments
 
+`END` by itself terminates your program and closes all files.
+
+The `END` statement is also used with [DEF FN](DEF-FN), [FUNCTION](FUNCTION), [IF](IF), [SELECT](SELECT), [SUB](SUB) and [TYPE](TYPE). Those forms of `END` are discussed in relation to the appropriate statements.
+
 `END` statements may be placed anywhere in the program to terminate execution.
 
-Unlike the [STOP](STOP) statement, `END` does not cause a `Break in line xxxx` message to be printed.
-
-An `END` statement at the end of a program is optional. BASIC always returns to command level after an `END` is executed.
-
-`END` closes all files.
+An `END` statement at the end of a program is optional.
 
 ## Example
 
 ```vb
-520 IF K>1000 THEN END ELSE GOTO DoItAgain
+FOR i = 1 TO 10
+  PRINT i
+NEXT
+END
 ```
-
-Ends the program and returns to command level whenever the value of `K` exceeds `1000`.
 
 ## See Also
 
-* [STOP](STOP), [IF...THEN](IF...THEN), [GOTO](GOTO)
+* [DEF FN](DEF-FN), [FUNCTION](FUNCTION), [IF](IF), [SELECT](SELECT), [SUB](SUB) and [TYPE](TYPE)

@@ -5,6 +5,7 @@ Set the default array storage.
 ## Example
 
 `REM $DYNAMIC`
+
 `REM $STATIC`
 
 `$DYNAMIC` specifies that arrays declared in subsequent [DIM](DIM) statements are dynamic arrays. Array storage is allocated dynamically while the program runs.

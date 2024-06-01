@@ -1,47 +1,60 @@
 # DEF FN
 
-To define and name a function written by the user.
+Defines a function.
 
 ## Syntax
 
-`DEF FNname[arguments] expression`
+`DEF FN`*name* [ (*argument_list*) ] = *expression*`
 
-```text
-DEF FNname[(parameterlist)]
-   [statementblock]
- FNname = expression
-   [statementblock]
- [EXIT DEF]
-   [statementblock]
-END DEF
-```
+`DEF FN`*name* [ (*parameter_list*) ]
+  ...
+  `FN`*name* = *expression*
+  ...
+`END DEF`
 
 ## Comments
 
-*name* must be a legal variable name. This name, preceded by `FN`, becomes the name of the function.
+Function names must beging with `FN` and can contain up to 40 characters. The function name indicates the value type the function returns:
 
-*arguments* consists of those variable names in the function definition that are to be replaced when the function is called. The items in the list are separated by commas.
+| Function Name | Returns |
+| --- | --- |
+| `FN`day$ | string |
+| `FN`count% | integer |
+| `FN`average# | single-preceision value |
 
-*expression* is an expression that performs the operation of the function. It is limited to one statement.
+For a function to return a value, the function must assign its result to the function name.
 
-In the `DEF FN` statement, arguments serve only to define the function; they do not affect program variables that have the same name. A variable name used in a function definition may or may not appear in the argument. If it does, the value of the parameter is supplied when the function is called. Otherwise, the current value of the variable is used.
+*argument_list* is a list of parameters to the function separated by commas as follows:
 
-The variables in the argument represent, on a one-to-one basis, the argument variables or values that are to be given in the function call.
+  *argument_name* [ `AS` *type* ]
 
-User-defined functions may be numeric or string. If a type is specified in the function name, the value of the expression is forced to that type before it is returned to the calling statement. If a type is specified in the function name and the argument type does not match, a `Type Mismatch` error occurs.
-
-A user-defined function may be defined more than once in a program by repeating the `DEF FN` statement.
-
-A `DEF FN` statement must be executed before the function it defines may be called. If a function is called before it has been defined, an `Undefined User Function` error occurs.
-
-Recursive functions are not supported in the `DEF FN` statement.
+You cannot use a function before your program defines it, nor can you use `DEF FN` functions recursively.
 
 ## Example
 
 ```vb
-400 R=1: S=2
-410 DEF FNAB(X, Y)=X^3/Y^2
-420 T=FNAB(R, S)
+DEF FNsum (a AS INTEGER, b AS INTEGER) = a + b
+
+DEF FNmax (a AS INTEGER, b AS INTEGER, c AS INTEGER)
+  IF (a > b) THEN
+    max = a 
+  ELSE 
+    max = b 
+  END IF
+  IF (max > c) THEN
+    FNmax = max
+  ELSE
+    FNmax = c 
+  END IF 
+END DEF
+
+PRINT FNsum(3, 5)
+PRINT FNmax(1, 2, 3)
 ```
 
-Line 410 defines the user-defined function `FNAB`. The function is called in line 420. When executed, the variable `T` will contain the value `R3` divided by `S2`, or `.25`.
+Running this program produces the following:
+
+```txt
+8
+3
+```

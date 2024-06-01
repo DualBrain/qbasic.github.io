@@ -1,12 +1,14 @@
-# GET
+# GET (Graphics)
 
-To transfer graphics images from the screen.
+Stores a graphics screen image in an array.
 
 ## Syntax
 
-`GET (x1,y1)-(x2,y2),array name`
+`GET` [ `STEP` ] (*xleft*,*ytop*)- [ `STEP` ] (*xright*,*ybottom*), *array* [ ( *index* ) ]
 
 ## Comments
+
+The keyword `STEP` indicates that the coordinates are offsets relative to the last point plotted.
 
 The [PUT](PUT) and `GET` statements are used to transfer graphics images to and from the screen. [PUT](PUT) and `GET` make animation and high-speed object motion possible in either graphics mode.
 
@@ -22,7 +24,7 @@ The storage format in the array is as follows:
 
 The data for each row of pixels is left-justified on a byte boundary. If less than a multiple of eight bits is stored, the rest of the byte will be filled out with zeros. The required array size in bytes is as follows:
 
-`4+INT((x*bitsperpixel+7)/8)*y`
+`4 + INT(( (xright - xleft + 1) * bitsperpixel / planes) + 7) / 8) * planes * (ybottom - ytop + 1)`
 
 See the [SCREEN](SCREEN) statement for bits-per-pixel values for different screen modes.
 
@@ -57,3 +59,7 @@ It is possible to get an image in one mode and put it in another, although the e
 140 FOR I=1 TO 1000: NEXT I
 150 PUT (220,130), A, PRESET
 ```
+
+## See Also
+
+- [PUT](PUT), [SCREEN](SCREEN)

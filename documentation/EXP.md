@@ -1,28 +1,27 @@
 # EXP
 
-To return `e` (the base of natural logarithms) to the power of `x`.
+Returns `e` raised to a specified power where `e` is the base of natural logarithms.
 
 ## Syntax
 
-`EXP(x)`
+`EXP`(*numeric_expression*)
 
 ## Comments
 
-`x` must be less than `88.02969`.
-
-If `EXP` overflows, the `Overflow` error message appears; machine infinity with the appropriate sign is supplied as the result, and execution continues.
+*numeric_expression* specifies the power to which `e` should be raised. It must be less or equal to `88.02969`; otherwise, `EXP` results in an overflow error.
 
 `EXP(x)` is calculated in single precision.
 
 ## Example
 
 ```vb
-10 X = 5 
-20 PRINT EXP(X - 1) 
+PRINT EXP(0), EXP(1)
 ```
 
 ```text
- 54.59815
+1      2.71828
 ```
 
-Prints the value of `e` to the 4th power.
+## See Also
+
+- [LOG](LOG)

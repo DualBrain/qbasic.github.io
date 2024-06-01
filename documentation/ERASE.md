@@ -1,28 +1,32 @@
 # ERASE
 
-To eliminate arrays from a program.
+Reinitializes the elements of a static array or deallocates dynamic arrays.
 
 ## Syntax
 
-`ERASE list of array variables`
+`ERASE` *array* [ , *array* ]...
 
 ## Comments
 
-Arrays may be re-dimensioned after they are erased, or the memory space previously allocated to the array may be used for other purposes. If an attempt is made to re-dimension an array without first erasing it, an error occurs.
+*array* is the name of the array to reinitialize or deallocate.
+
+For static numeric arrays, `ERASE` sets each element to zero. For static string arrays, `ERASE` sets each element to null.
+
+For dynamic arrays, `ERASE` frees the memory used by the specified arrays.
 
 ## Example
 
 ```vb
-200 DIM B (250)
-.
-.
-.
-450 ERASE A, B
-460 DIM B(3, 4)
+DIM a(100)
+FOR i = 1 TO 100
+  a(i) = i
+NEXT i
+ERASE a     ' Reinitialize A
+FOR i = 1 TO 100
+  PRINT a(i)
+NEXT i
 ```
-
-Arrays `A` and `B` are eliminated from the program. The `B` array is re-dimensioned to a 3-column by 4-row array (12 elements), all of which are set to a zero value.
 
 ## See Also
 
-* [DIM](DIM)
+* [CLEAR](CLEAR), [DIM](DIM), [FRE](FRE), [REDIM](REDIM)

@@ -1,23 +1,26 @@
 # ERDEV
 
-To return the actual value (`ERDEV`) of a device error, and the name of the device (`ERDEV$`) causing the error.
+Returns an integer error code from the last device that declared an error.
 
 ## Syntax
 
 `ERDEV`
 
-`ERDEV$`
-
 ## Comments
 
-`ERDEV` will contain the error code from interrupt 24H in the lower 8 bits. Bits 8 to 15 from the attribute word in the Device Header Block are mapped directly into the upper 8 bits.
-
-`ERDEV$` will contain the 8-byte character device name if the error was on a character device. It will contain the 2 byte block device name (A:, B:, etc.) if the device was not a character device.
+The MS-DOS critical error handler sets the value for `ERDEV`. The lower byte contains the MS-DOS error code (0 through 12). The upper byte contains device attribute information.
 
 ## Example
 
-Installed device driver lpt2: caused a "Printer out of paper" error via INT 24H.
+```vb
+ON ERROR GOTO Handler
+...
+Handler:
+  PRINT "Error accessing device "; ERDEV$
+  PRINT "Error status code "; ERDEV
+  ...
+```
 
-`ERDEV` contains the error number 9 in the lower 8 bits, while the upper 8 bits contain the upper byte of the Device Header word attributes.
+## See Also
 
-`ERDEV$ contains "LPT2: ".`
+- [ERDEV$](ERDEV$), [ERL](ERL), [ERR](ERR), [ERROR](ERROR), [ON ERROR GOTO](ON-ERROR-GOTO), [RESUME](RESUME)

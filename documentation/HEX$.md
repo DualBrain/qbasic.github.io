@@ -4,27 +4,21 @@ To return a string which represents the hexadecimal value of the numeric argumen
 
 ## Syntax
 
-`v$=HEX$(x)`
+v$=`HEX$`(*numeric_expression*)
 
 ## Comments
 
-`HEX$` converts decimal values within the range of `-32768` to `+65535` into a hexadecimal string expression within the range of `0` to `FFFF`.
-
-Hexadecimal numbers are numbers to the base 16, rather than base 10 (decimal numbers). Appendix C and Appendix G in the BASIC User's Guide contain more information on hexadecimals and their equivalents.
-
-*x* is rounded to an integer before `HEX$(x)` is evaluated. See the [OCT$](OCT$) function for octal conversions.
-
-If *x* is negative, 2's (binary) complement form is used.
+Hexadecimal notation is the base 16 numbering system. It uses the numbers 1 through 9 and the letters A through F. To store the hexadecimal representation of a number, you must use a string variable.
 
 ## Example
 
 ```vb
-10 CLS: INPUT "INPUT DECIMAL NUMBER";X
-20 A$=HEX$(X)
-30 PRINT X "DECIMAL IS "A$" HEXADECIMAL"
+' Display octal, decimal and hext values from 0 to 255
+FOR i = 0 TO 255
+  PRINT OCT$(i), i, HEX$(i)
+NEXT i
 ```
 
-```text
- INPUT DECIMAL NUMBER? 32
- 32 DECIMAL IS 20 HEXADECIMAL
-```
+## See Also
+
+- [OCT$](OCT$)

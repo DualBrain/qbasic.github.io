@@ -1,69 +1,34 @@
 # ENVIRON
 
-To allow the user to modify parameters in BASIC's environment string table. This may be to change the path parameter for a child process, (see [ENVIRON$](ENVIRON$), [SHELL](SHELL), and the MS-DOS utilities `PATH` command), or to pass parameters to a child by inventing a new environment parameter.
+Changes an existing entry or places a new entry in the MS-DOS environment.
 
 ## Syntax
 
-`ENVIRON string`
+`ENVIRON` *string_expression*
 
-*string* is a valid string expression containing the new environment string parameter.
+## Comments
 
-*string* must be of the following form...
+The `ENVIRON` statement expects a string expression of the same form as the MS-DOS `SET` command, *entry*=*value*.
 
-*parmid=text*
+The change to the environment table is valid only for the life of the program.
 
-...where *parmid* is the name of the parameter such as `PATH`.
-
-*parmid* must be separated from text by an equal sign or a blank. `ENVIRON` takes everything to the left of the first blank or equal sign as the *parmid*; everything following is taken as text.
-
-*text* is the new parameter text. If text is a null string, or consists only of a single semicolon, then the parameter (including *parmid=*) is removed from the environment string table, and the table is compressed. *text* must not contain any embedded blanks.
-
-If *parmid* does not exist, then *string* is added at the end of the environment string table.
-
-If *parmid* does exist, it is deleted, the environment string table is compressed, and the new string is added at the end.
+You cannot increase the size of the MS-DOS environment in QBasic. To make space in the MS-DOS environment for use by QBasic programs, create a dummy entry with the DOS `SET` command. Then erase the contents of the entry in a QBasic program to make space for new or changed variables.
 
 ## Examples
 
 Assuming the environment string table is empty, the following statement will create a default path to the root directory on Disk A:
 
 ```vb
-ENVIRON "PATH=A:\"
+ENVIRON "PROGRAM=TEST"
+PRINT ENVIRON$("PROGRAM")
 ```
 
-If your work subdirectory were john, you would be able to get DEBUG from the root.
+Running this program produces the following:
 
-A new parameter may be added:
-
-```vb
-ENVIRON "COMSPEC=A:\COMMAND.COM"
+```txt
+TEST
 ```
-
-The environment string table now contains
-
-`PATH=A:\; COMSPEC=A:\COMMAND.COM`
-
-The path may be changed to a new value:
-
-```vb
-ENVIRON "PATH=A:\SALES; A:\ACCOUNTING"
-```
-
-The path parameter may be appended by using the [ENVIRON$](ENVIRON$) function with the `ENVIRON` statement:
-
-```vb
-ENVIRON "PATH="+ENVIRON$("PATH")+"; B:\SAMPLES"
-```
-
-Finally, delete the parameter COMSPEC:
-
-```vb
-ENVIRON "COMSPEC=;"
-```
-
-The environment string table now contains
-
-`PATH=A:\SALES; A:\ACCOUNTING; B:\SAMPLES`
 
 ## See Also
 
-* [ENVIRON$](ENVIRON$), [SHELL](SHELL)
+* [ENVIRON$](ENVIRON$)

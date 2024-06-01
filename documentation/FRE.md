@@ -1,32 +1,33 @@
 # FRE
 
-To return the number of available bytes in allocated string memory.
+Returns the amount of available stack space, string space or memory.
 
 ## Syntax
 
-`FRE(x$)`
-`FRE(x)`
+`FRE`(*numeric_expression*)
+
+`FRE`(*string_expression*)
 
 ## Comments
 
-Arguments (*x$*) and (*x*) are dummy arguments.
+If the argument to `FRE` is -1, `FRE` returns the size in bytes of the largest array you can create. If the argument is -2, `FRE` returns the available stack space. For any other numeric argument, `FRE` returns the amount of available string space.
 
-Before `FRE(x$)` returns the amount of space available in allocated string memory, BASIC initiates a "garbage collection" activity. Data in string memory space is collected and reorganized, and unused portions of fragmented strings are discarded to make room for new input.
-
-If `FRE` is not used, BASIC initiates an automatic garbage collection activity when all string memory space is used up. BASIC will not initiate garbage collection until all free memory has been used. Garbage collection may take 1 to 1.5 minutes.
-
-`FRE("")` or any string forces a garbage collection before returning the number of free bytes. Therefore, using `FRE("")` periodically will result in shorter delays for each garbage collection.
-
-It should be noted that the CTRL-BREAK function cannot be used during this housecleaning process.
+If the argument to `FRE` is a string expression, `FRE` compacts the free string space into a single block and then returns the available string space.
 
 ## Example
 
 ```vb
-PRINT FRE(0)
+PRINT "String space"; FRE("")
+PRINT "Stack space"; FRE(-2)
+PRINT "Array space"; FRE(-1)
 ```
 
 ```text
- 14542
+String space 48460
+Stack space 784
+Array space 184092
 ```
 
-Your computer may return a different value.
+## See Also
+
+- [CLEAR](CLEAR), [ERASE](ERASE)

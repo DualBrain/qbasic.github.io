@@ -4,31 +4,47 @@ To specify the maximum values for array variable subscripts and allocate storage
 
 ## Syntax
 
-`DIM variable(subscripts)[,variable(subscripts)]...`
+`DIM` [ `SHARED` ] *variable_name* [ ( *subscripts* )] [ `AS` *type* ] [, *variable_name* [ ( *subscripts* ) ] [ `AS` *type* ] ]...
 
 ## Comments
 
-If an array variable name is used without a `DIM` statement, the maximum value of its subscript(s) is assumed to be `10`. If a subscript greater than the maximum specified is used, a `Subscript out of range` error occurs.
+The `SHARED` keyword allows subprograms and functions to share the same variable without passing the variable as a parameter.
 
-The maximum number of dimensions for an array is `255`.
+*variable_name* is the name of the array.
 
-The minimum value for a subscript is always `0`, unless otherwise specified with the [OPTION BASE](OPTION-BASE) statement.
+*subscripts* is the dimensions of the array. If you have not previously defined an array in a `DIM` statement, you can assign a value to an element that has subscript ranging from 0 to 10. You can change the lower and upper bounds as shown here:
 
-An array, once dimensioned, cannot be re-dimensioned within the program without first executing a [CLEAR](CLEAR) or [ERASE](ERASE) statement.
+```vb
+DIM a(0 TO 8)      ' a(0) to a(8)
+DIM b(1 TO 10)     ' b(1) to b(10)
+```
 
-The `DIM` statement sets all the elements of the specified arrays to an initial value of zero.
+If you specify only one subscript, QBasic assumes that it is the upper bound and uses 0 for the lower bound unless you include and [OPTION BASE](OPTION-BASE) statement.
+
+For multidimensional arrays, simply separate the subscripts of each array dimension with commas:
+
+```vb
+DIM box(3, 3)
+DIM bigbox(1 TO 10, 1 TO 10)
+```
+
+The maximum number of array dimensions is 60.
+
+Valid types include [INTEGER](INTEGER), [LONG](LONG), [SINGLE](SINGLE), [DOUBLE](DOUBLE), [STRING](STRING) and user-defined types.
 
 ## Example
 
 ```vb
-10 DIM A(20)
-20 FOR I=0 TO 20
-30   READ A(I)
-40 NEXT I
-```
+DIM a(25 TO 100) AS INTEGER
+DIM b(1 TO 10, 1 TO 5) AS DOUBLE
 
-This example reads 21 `DATA` statements elsewhere in the program and assigns their values to `A(0)` through `A(20)`, sequentially and inclusively. If the `A` array is single precision (default accuracy) then the first line will allocate 84 bytes of memory to this array (4 bytes times 21 elements).
+TYPE Schedule
+  day AS STRING * 10
+  hours AS INTEGER
+END TYPE
+DIM workday AS Schedule
+```
 
 ## See Also
 
-* [OPTION BASE](OPTION-BASE), [CLEAR](CLEAR), [ERASE](ERASE), [FOR...NEXT](FOR...NEXT)
+* [ERASE](ERASE), [LBOUND](LBOUND), [OPTION BASE](OPTION-BASE), [REDIM](REDIM), [UBOUND](UBOUND)

@@ -1,3 +1,3 @@
-# DEFDBL
+# DEFLNG
 
 See [DEFINT](DEFINT).

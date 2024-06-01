@@ -6,24 +6,26 @@ To set or retrieve the current date.
 
 As a statement:
 
-`DATE$=v$`
+`DATE$`=*string_expression*
 
 As a variable:
 
-`v$=DATE$`
+*v$*=`DATE$`
 
 ## Comments
 
-*v$* is a valid string literal or variable.
+*string_expression* is a valid string literal or variable.
 
-*v$* can be any of the following formats when assigning the date:
+*string_expression* can be any of the following formats when assigning the date:
 
 * *mm-dd-yy*
 * *mm/dd/yy*
 * *mm-dd-yyyy*
 * *mm/dd/yyyy*
 
-If *v$* is not a valid string, a "Type Mismatch" error results. Previous values are retained.
+If you specify only the last two digits of the year, `DATE$` assumes that the first two digits are 19.
+
+If *string_expression* is not a valid string, a "Type Mismatch" error results. Previous values are retained.
 
 If any of the values are out of range or missing, an "Illegal Function Call" error is issued. Any previous date is retained.
 
@@ -46,4 +48,4 @@ PRINT v$
 
 ## See Also
 
-* [LET](LET), [PRINT](PRINT)
+* [TIME$](TIME$)

@@ -1,12 +1,14 @@
 # DRAW
 
-To draw a figure.
+Draws an object specified in a string expression.
 
 ## Syntax
 
-`DRAW string expression`
+`DRAW` *string_expression*
 
 ## Comments
+
+`DRAW` uses a string contianing graphics commands to draw an object. The string can contain cursor, color and scaling commands.
 
 The `DRAW` statement combines most of the capabilities of the other graphics statements into an object definition language called Graphics Macro Language (GML). A GML command is a single character within a string, optionally followed by one or more arguments.
 
@@ -18,14 +20,14 @@ Each of the following movement commands begins movement from the current graphic
 
 | Command | Moves |
 | ------- | ----- |
-| U*n* | up |
-| D*n* | down |
-| L*n* | left |
-| R*n* | right |
-| E*n* | diagonally up and right |
-| F*n* | diagonally down and right |
-| G*n* | diagonally down and left |
-| H*n* | diagonally up and left |
+| U*n* | up *n* units |
+| D*n* | down *n* units |
+| L*n* | left *n* units |
+| R*n* | right *n* units |
+| E*n* | diagonally up and right *n* units |
+| F*n* | diagonally down and right *n* units |
+| G*n* | diagonally down and left *n* units |
+| H*n* | diagonally up and left *n* units |
 
 This command moves as specified by the following argument:
 
@@ -64,9 +66,9 @@ You can also specify variables using [VARPTR$](VARPTR$)(*variable*).
 To draw a box in medium resolution:
 
 ```vb
-10 SCREEN 1
-20 A=20
-30 DRAW "U=A; R=A; D=A; L=A;"
+SCREEN 1
+A=20
+DRAW "U=A; R=A; D=A; L=A;"
 ```
 
 The aspect ratio to draw a square on a standard screen is 4:3, as shown below:
@@ -90,12 +92,21 @@ The horizontal values equals 4/3 of the vertical values.
 To draw a triangle in medium resolution:
 
 ```vb
-10 CLS
-20 SCREEN 1
-30 PSET (60, 125)
-40 DRAW "E100; F100; L199"
+CLS
+SCREEN 1
+PSET (60, 125)
+DRAW "E100; F100; L199"
+```
+
+```vb
+'Draw a box and fill it
+SCREEN 1
+DRAW "C3"
+DRAW "L20U20R20D20"   ' draw box
+DRAW "BH10"           ' move into box
+DRAW "P2,3"           ' paint box
 ```
 
 ## See Also
 
-* [LINE](LINE), [PSET](PSET), [COLOR](COLOR), [PALETTE](PALETTE), [SCREEN](SCREEN), [GOSUB](GOSUB), [VARPTR$](VARPTR$), [CLS](CLS)
+* [CIRCLE](CIRCLE), [COLOR](COLOR), [LINE](LINE), [PAINT](PAINT), [POINT](POINT), [PRESET](PRESET), [PSET](PSET), [SCREEN](SCREEN)
