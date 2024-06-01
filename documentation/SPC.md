@@ -14,7 +14,7 @@ If *n* is greater than the defined width of the printer or the screen, the value
 
 A semicolon is assumed to follow the `SPC(n)` command.
 
-`SPC` may only be used with [PRINT](PRINT), [LPRINT](LPRINT) and [PRINT#](PRINT#) statements (see the [SPACE$](SPACE$) function).
+`SPC` may only be used with [PRINT](PRINT), [LPRINT](LPRINT) and [PRINT#](PRINT-FILE) statements (see the [SPACE$](SPACE$) function).
 
 ## Example
 

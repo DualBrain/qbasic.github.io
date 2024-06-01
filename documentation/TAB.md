@@ -16,7 +16,7 @@ Space 1 is the leftmost position. The rightmost position is the screen width.
 
 If the `TAB` function is at the end of a list of data items, BASIC will not return the cursor to the next line. It is as though the `TAB` function has an implied semicolon after it.
 
-`TAB` may be used only in [PRINT](PRINT), [LPRINT](LPRINT), or [PRINT#](PRINT#) statements (see the [SPC](SPC) function).
+`TAB` may be used only in [PRINT](PRINT), [LPRINT](LPRINT), or [PRINT#](PRINT-FILE) statements (see the [SPC](SPC) function).
 
 ## Examples
 

@@ -6,7 +6,7 @@ This appendix describes the BASIC statements necessary to support RS-232 asynchr
 
 ### F.1 Opening Communications Files
 
-The [OPEN COM](OPEN-COM#) statement allocates a buffer for input and output in the same manner as the [OPEN](OPEN) statement opens disk files.
+The [OPEN COM](OPEN-COM-FILE) statement allocates a buffer for input and output in the same manner as the [OPEN](OPEN) statement opens disk files.
 
 ### F.2 Communications I/O
 
@@ -14,14 +14,14 @@ Since the communications port is opened as a file, all I/O statements valid for 
 
 COM sequential input statements are the same as those for disk files:
 
-* [INPUT#](INPUT#)
-* [LINE INPUT#](LINE-INPUT#)
+* [INPUT#](INPUT-FILE)
+* [LINE INPUT#](LINE-INPUT-FILE)
 * [INPUT$](INPUT$)
 
 COM sequential output statements are the same as those for diskette:
 
-* [PRINT#](PRINT#)
-* [PRINT# USING](PRINT#-USING)
+* [PRINT#](PRINT-FILE)
+* [PRINT# USING](PRINT-FILE-USING)
 
 See the BASIC User's Reference for more information on these statements.
 
@@ -70,7 +70,7 @@ The [INPUT$](INPUT$) function is preferred over the [INPUT](INPUT) and [LINE INP
 
 This sequence of statements translates: As long as something is in the input queue, return the number of characters in the queue and store them in A$. If there are more than 255 characters, only 255 are returned at a time to prevent string overflow. If this is the case, [EOF](EOF)`(1)` is false, and input continues until the input queue is empty.
 
-## [GET#](GET#) and [PUT#](PUT#) Statements for COM Files
+## [GET#](GET-FILE) and [PUT#](PUT-FILE) Statements for COM Files
 
 To allow fixed-length I/O for COM.
 
@@ -84,7 +84,7 @@ To allow fixed-length I/O for COM.
 
 *nbytes* is an integer expression returning the number of bytes to be transferred into or out of the file buffer. *nbytes* cannot exceed the value set by the /s: switch when BASIC was invoked.
 
-Because of the low performance associated with telephone line communications, it is recommended that [GET#](GET#) and [PUT#](PUT#) not be used in such applications.
+Because of the low performance associated with telephone line communications, it is recommended that [GET#](GET-FILE) and [PUT#](PUT-FILE) not be used in such applications.
 
 ## Example
 

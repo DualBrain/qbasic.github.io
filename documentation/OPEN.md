@@ -80,9 +80,9 @@ For each device, the following `OPEN` modes are allowed:
 - `COM2:` Input, Output, or Random Only
 - Disk files allow all modes.
 
-When a disk file is opened for `APPEND`, the position is initially at the end of the file, and the record number is set to the last record of the file (`LOF(x)/128`). [PRINT](PRINT#), [WRITE#](WRITE#), or [PUT#](PUT#) then extends the file. The program may position elsewhere in the file with a [GET#](GET#) statement. If this is done, the mode is changed to random and the position moves to the record indicated.
+When a disk file is opened for `APPEND`, the position is initially at the end of the file, and the record number is set to the last record of the file (`LOF(x)/128`). [PRINT](PRINT-FILE), [WRITE#](WRITE-FILE), or [PUT#](PUT-FILE) then extends the file. The program may position elsewhere in the file with a [GET#](GET-FILE) statement. If this is done, the mode is changed to random and the position moves to the record indicated.
 
-Once the position is moved from the end of the file, additional records may be appended to the file by executing a [GET](GET#) `#x,` [LOF](LOF)`(x) / reclen` statement. This positions the file pointer at the end of the file in preparation for appending.
+Once the position is moved from the end of the file, additional records may be appended to the file by executing a [GET](GET-FILE) `#x,` [LOF](LOF)`(x) / reclen` statement. This positions the file pointer at the end of the file in preparation for appending.
 
 Any values entered outside of the ranges given result in `Illegal function call` errors. The files are not opened.
 

@@ -45,7 +45,7 @@ Offsets to FCB Information
 | 1      | 38     | FCB    | Diskette file control block. |
 | 39     | 2      | CURLOC | Number of sectors read or written for sequential access. The last record number +1 read or written for random files. |
 | 41     | 1      | ORNOFS | Number of bytes in sector when read or written. |
-| 42     | 1      | NMLOFS | Number of bytes left in [INPUT#](INPUT#) buffer. |
+| 42     | 1      | NMLOFS | Number of bytes left in [INPUT#](INPUT-FILE) buffer. |
 | 43     | 3      | ***    | Reserved for future expansion. |
 | 46     | 1      | DEVICE | Device Number: |
 |        |        |        | 0-9 Disks A: through J: |
@@ -66,7 +66,7 @@ Offsets to FCB Information
 | 181    | 2      | PHYREC | Current physical record number. |
 | 183    | 2      | LOGREC | Current logical record number. |
 | 185    | 1      | ***	Future use. |
-| 186    | 2      | OUTPOS | Disk files only. Output position for [PRINT#](PRINT#), [INPUT#](INPUT#), and [WRITE#](WRITE#). |
+| 186    | 2      | OUTPOS | Disk files only. Output position for [PRINT#](PRINT-FILE), [INPUT#](INPUT-FILE), and [WRITE#](WRITE-FILE). |
 | 188    | n      | FIELD  | Actual FIELD data buffer. Size is determined by S:switch. VRECL bytes are transferred between BUFFER and FIELD on I/O operations. Use this offset to examine file data in random I/O mode. |
 
 ## Examples
