@@ -1,19 +1,23 @@
 # ABS
 
-To return the absolute value of the expression `n`.
+To return the absolute value of a numeric expression.
 
 ## Syntax
 
-`ABS(n)`
+**ABS**(*numeric_expression*)
 
 ## Comments
 
-`n` must be a numeric expression.
+*numeric_expression* is any numeric expression.
+
+`ABS` always returns a positive value, regardless of whether the result of the expression is positive or negative.
+
+`ABS` returns a value of the same type as *numeric_expression* ([INTEGER](INTEGER), [LONG](LONG), [DOUBLE](DOUBLE) and so on).
 
 ## Example
 
 ```vb
-10 PRINT ABS(7*(-5))
+PRINT ABS(7*(-5))
 ```
 
 ```text

@@ -1,26 +1,27 @@
 # ATN
 
-To return the arctangent of `x`, when `x` is expressed in radians.
+Returns the arctangent of the specified value.
 
 ## Syntax
 
-`ATN(x)`
+**ATN**(*numeric_expression*)
 
 ## Comments
 
-The result is within the range of `-π/2` to `π/2`. The expression `x` may be any numeric type. The evaluation of `ATN` is performed in single precision.
+*numeric_expression* is the value for which you want to find the arctangent.
 
-To convert from degrees to radians, multiply by `π/180`.
+You can express an angle in either degrees or radians. `ATN` returns an angle in radians. To convert radians to degrees, use the following equation:
+
+*degrees* = *radians* * (180/3.141593)
 
 ## Example
 
 ```vb
-10 X = 3
-20 PRINT ATN(X)
+X = 3
+PRINT ATN(X)
 ```
 
 ```text
- ? 3
  1.249046
 ```
 
