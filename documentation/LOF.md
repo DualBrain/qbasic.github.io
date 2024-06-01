@@ -1,22 +1,21 @@
 # LOF
 
-To return the length (number of bytes) allocated to the file.
+Returns the number of bytes in a file.
 
 ## Syntax
 
-`LOF(file number)`
+`LOF`(*file_number*)
 
 ## Comments
 
-*file number* is the number of the file that the file was opened under.
+*file_number* is the file number assigned to the file in its [OPEN](OPEN) statement.
 
-With communications files, `LOF` returns the amount of free space in the input buffers.
+You cannot use `LOF` with devices.
 
 ## Example
 
-The following sequence gets the last record of the random-access file *file.big*, and assumes that the file was created with a default record length of 128 bytes:
-
 ```vb
-10 OPEN "R", 1, "FILE.BIG"
-20 GET #1, LOF(1) / 128
+OPEN "\CONFIG.SYS" FOR INPUT AS #1
+PRINT "File size in bytes is"; LOF(1)
+CLOSE #1
 ```

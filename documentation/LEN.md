@@ -1,26 +1,35 @@
 # LEN
 
-To return the number of characters in *x$*.
+Returns the number of characters in a string or the number of bytes used to store a variable.
 
 ## Syntax
 
-`LEN(x$)`
+`LEN`(*string_expression*)
+
+`LEN`(*variable*)
 
 ## Comments
 
-Non-printing characters and blanks are counted.
+*string_expression* is any string expression.
+
+*variable* is any variable of a type other than [STRING](STRING).
 
 ## Example
 
-*x$* is any string expression.
-
 ```vb
-10 X$="PORTLAND, OREGON"
-20 PRINT LEN(X$)
+DIM x as INTEGER, y AS LONG
+a$ = "13 CHARACTERS"
+PRINT a$, LEN(a$)
+PRINT "Integer"; LEN(x), "Long"; LEN(y)
 ```
+
+Results in:
 
 ```text
- 16
+13 CHARACTERS   13
+Integer 2       Long 4
 ```
 
-Note that the comma and space are included in the character count of 16.
+## See Also
+
+- [INSTR](INSTR), [LEFT$](LEFT$), [MID$](MID$), [RIGHT$](RIGHT$)

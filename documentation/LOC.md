@@ -1,27 +1,23 @@
 # LOC
 
-To return the current position in the file.
+Returns the current offset or record number within a file.
 
 ## Syntax
 
-`LOC(file number)`
+`LOC`(*file_number*)
 
 ## Comments
 
-*file number* is the file number used when the file was opened.
+*file_number* is the file number assigned to the file in its [OPEN](OPEN) statement.
 
-When transmitting or receiving a file through a communication port, `LOC` returns the number of characters in the input buffer waiting to be read. The default size for the input buffer is 256 characters, but can be changed with the /c: option on the BASIC command line. If there are more than 255 characters in the buffer, `LOC` returns 255. Since a string is limited to 255 characters, this practical limit alleviates the need to test for string size before reading data into it. If fewer than 255 characters remain in the buffer, then `LOC` returns the actual count.
-
-With random disk files, `LOC` returns the record number just read from, or written to, with a [GET](GET) or [PUT](PUT) statement.
-
-With sequential files, `LOC` returns the number of 128-byte blocks read from, or written to, the file since it was opened. When the sequential file is opened for input, BASIC initially reads the first sector of the file. In this case, the `LOC` function returns the character 1 before any input is allowed.
-
-If the file was opened but no disk input/output was performed, `LOC` returns a zero.
+For binary files, [LOC] returns the current byte offset in the file. For random-access files, `LOC` returns the current record number. For sequential files, `LOC` returns the current offset, divided by 128. For a `COM` device, `LOC` returns the number of bytes in the input queue.
 
 ## Example
 
 ```vb
-IF LOC(1) > 50 THEN STOP
+IF LOC(1) > 100 THEN CALL ReadIt(salary)
 ```
 
-The program stops after `51` records are read or written.
+## See Also
+
+- [SEEK](SEEK)

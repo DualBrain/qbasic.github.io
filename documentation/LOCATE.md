@@ -1,53 +1,35 @@
 # LOCATE
 
-To move the cursor to the specified position on the active screen. Optional parameters cause the cursor to blink on and off, and define the start and stop raster lines for the cursor. A raster line is the vertical or horizontal distance between two adjacent, addressable points on your screen.
+Moves the cursor to the specified position on the screen and, optionally, sets the cursor size.
 
 ## Syntax
 
-`LOCATE [row][,[col][,[cursor][,[start] [,stop]]]]`
+`LOCATE` [*row*][,[*col*][,[*visible*][,[*scan_start*] [ ,*scan_stop*]]]]
 
 ## Comments
 
-*row* is the screen line number, a numeric expression within the range of 1 to 25.
+*row* is the number of the desired row.
 
-*col* is the screen column number, a numeric expression within the range of 1 to 40, or 1 to 80, depending upon screen width.
+*col* is the number of the desired column.
 
-*cursor* is a Boolean value indicating whether the cursor is visible; zero is off, nonzero is on.
+*visible*, when 1, causes the cursor to be displayed. When 0, it causes the cursor to be hidden.
 
-*start* is the cursor start scan line, a numeric expression within the range of 0 to 31.
+*scan_start* is an integer specifying the first cursor scan line.
 
-*stop* is the cursor stop scan line, a numeric expression within the range of 0 to 31.
+*scan_stop* is an integer specifying the last cursor scan line.
 
-When the cursor is moved to the specified position, subsequent [PRINT](PRINT) statements begin placing characters at this location. Optionally, the `LOCATE` statement may be used to start the cursor blinking on or off, or change the size of the blinking cursor.
-
-Any values entered outside of these ranges results in "Illegal function call" errors. Previous values are retained.
-
-As you set up the parameters for the `LOCATE` statement, you may find that you do not wish to change one or more of the existing specifications. To omit a parameter from this `LOCATE` statement, insert a comma for the parameter that is being skipped. If the omitted parameter(s) occurs at the end of the statement, you do not have to type the comma.
-
-If the start scan line parameter is given and the stop scan line parameter is omitted, stop assumes the start value.
+If the *scan_start* parameter is given and the *scan_stop* parameter is omitted, *scan_stop* assumes the *scan_start* value.
 
 ## Examples
 
 ```vb
-10 LOCATE 1,1
+CLS
+FOR i = 5 TO 20
+  LOCATE i, i
+  PRINT "Location is"; i; i
+NEXT i
 ```
 
-Moves cursor to the home position in the upper-left corner.
+## See Also
 
-```vb
-20 LOCATE ,,1
-```
-
-Makes the cursor visible. Its position remains unchanged. Notice that the first two parameters are not used. A comma has been inserted for each omitted parameter.
-
-```vb
-30 LOCATE ,,,7
-```
-
-Cursor position and visibility remain unchanged. Sets the cursor to appear at the bottom of the character starting and ending on scan line 7.
-
-```vb
-40 LOCATE 5,1,1,0,7
-```
-
-Moves the cursor to line 5, column 1, and turns the cursor on. The cursor covers an entire character cell, starting at scan line 0 and ending on scan line 7.
+- [CSRLIN](CSRLIN), [POS](POS)

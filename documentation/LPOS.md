@@ -1,23 +1,22 @@
 # LPOS
 
-To return the current position of the line printer print head within the line printer buffer.
+Returns the current position of the printer head within a print buffer.
 
 ## Syntax
 
-`LPOS(x)`
+`LPOS`(*printer_number*)
 
 ## Comments
 
-`LPOS` does not necessarily give the physical position of the print head.
+*printer_number* is the number of the printer of interest. 1 is LPT1, 2 is LPT2 and so on.
 
-*x* is a dummy argument.
-
-If the printer has less than the 132 characters-per-line capability, it may issue internal line feeds and not inform the computer internal line printer buffer. If this has happened, the value returned by `LPOS(x)` may be incorrect. `LPOS(x)` simply counts the number of printable characters since the last line feed was issued.
+Not all printers support `LPOS`.
 
 ## Example
 
-The following line causes a carriage return after the 60th character is printed on a line:
-
 ```vb
-100 IF LPOS(X)>60 THEN LPRINT CHR$(13)
+FOR i = 1 TO 100
+  LPRINT i;                     'Print number on same line
+  IF LPOS(1) > 50 THEN LPRINT   'Start a new line
+NEXT i
 ```

@@ -1,28 +1,29 @@
 # LSET
 
-To move data from memory to a random-file buffer and left- or right-justify it in preparation for a [PUT] statement.
+Moves data into a random-access file buffer, assigns a variable of one record type to a variable of a different record type or left-justifies the value of a string variable.
 
 ## Syntax
 
-`LSET string variable=string expression`
+`LSET` *string_variable*=*string_expression*
 
-`RSET string variable=string expression`
+`LSET` *record_variable1* = *record_variable2*
 
 ## Comments
 
-If `string expression` requires fewer bytes than were fielded to string variable, `LSET` left-justifies the string in the field, and `RSET` right-justifies the string (spaces are used to pad the extra positions).
+*string_variable* is either a random-access file field or a string variable.
 
-If the string is too long for the field, characters are dropped from the right.
+*string_expression* is any string expression.
 
-To convert numeric values to strings before the `LSET` or `RSET` statement is used, see the [MKI$](MKI$), [MKS$](MKS$), and [MKD$](MKD$) functions.
-
-`LSET` or `RSET` may also be used with a nonfielded string variable to left-justify or right-justify a string in a given field.
+*record_variable1* and *record_variable2* are user-defined record variables.
 
 ## Example
 
 ```vb
-110 A$ = SPACE$(20)
-120 RSET A$ = N$
+salary = 66000
+LSET e$ = MKS$(salary)
+PUT #1
 ```
 
-These two statements right-justify the string *N$* in a 20-character field. This can be valuable for formatting printed output.
+## See Also
+
+- [RSET](RSET)

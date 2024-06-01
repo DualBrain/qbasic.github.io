@@ -1,33 +1,32 @@
 # LINE INPUT
 
-To input an entire line (up to 255 characters) from the keyboard into a string variable, ignoring delimiters.
+Reads in a string of up to 255 characters.
 
 ## Syntax
 
-`LINE INPUT [;][prompt string;]string variable`
+`LINE INPUT` [;] [*prompt_string*; ] *string_variable*
+
+`LINE INPUT` [#] *file_number*, *string_variable*
 
 ## Comments
 
-*prompt string* is a string literal, displayed on the screen, that allows user input during program execution.
+Although the [INPUT](INPUT) statement interprets as comma as a separator between two entries, the `LINE INPUT` statement does not. The `LINE INPUT` statement reads all characters up to the carriage return and assigns them to a string variable.
 
-A question mark is not printed unless it is part of prompt string.
+If present, the semicolon immediately following the keyword `INPUT` directs `LINE INPUT` to leave the cursor on the same line after the user presses Enter.
 
-*string variable* accepts all input from the end of the prompt to the carriage return. Trailing blanks are ignored.
+*prompt_string* is an optional message that directs the user to enter data.
 
-`LINE INPUT` is almost the same as the [INPUT](INPUT) statement, except that it accepts special characters (such as commas) in operator input during program execution.
+*string_variable* is the string variable to which `LINE INPUT` assigns the information entered.
 
-If a line-feed/carriage return sequence (this order only) is encountered, both characters are input and echoed. Data input continues.
-
-If `LINE INPUT` is immediately followed by a semicolon, pressing the RETURN key will not move the cursor to the next line.
-
-A `LINE INPUT` may be escaped by typing CTRL-BREAK. BASIC returns to command level and displays Ok.
-
-Typing [CONT](CONT) resumes execution at the `LINE INPUT` line.
+*file_number* is the file number assigned to the file in its [OPEN](OPEN) statement.
 
 ## Example
 
 ```vb
-100 LINE INPUT A$
+LINE INPUT "Enter last name, first name, MI: "; fullname$
+PRINT fullname$
 ```
 
-Program execution pauses at line 100, and all keyboard characters typed thereafter are input to string A$ until RETURN, CTRL-M, CTRL-C, or CTRL-BREAK is entered.
+## See Also
+
+- [INPUT](INPUT), [INPUT$](INPUT$), [INPUT#](INPUT-FILE)

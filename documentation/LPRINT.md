@@ -1,21 +1,32 @@
 # LPRINT
 
-To print data at the line printer.
+PRints on the printer LPT1.
 
 ## Syntax
 
-`LPRINT [list of expressions][;]`
-
-`LPRINT USING string exp; list of expressions[;]`
+`LPRINT` [*output_list*][{;|,}]
 
 ## Comments
 
-*list of expressions* consists of the string or numeric expression separated by semicolons.
+*output_list* is a list of numeric and string expressions to be printed. Expressions must be separated by commas or semicolons.
 
-*string expressions* is a string literal or variable consisting of special formatting characters. The formatting characters determine the field and the format of printed strings or numbers.
+A semicolon following the output list leaves the print head at the next character position. A comma leaves the print head at the next print zone. Print zones are 14 characters in length. Omitting a semicolon or comma causes the printer to advance to the beginning of the next line.
 
-These statements are the same as [PRINT](PRINT) and [PRINT USING](PRINT-USING), except that output goes to the line printer. For more information about string and numeric fields and the variables used in them, see the [PRINT](PRINT) and [PRINT USING](PRINT-USING) statements.
+## Example
 
-The `LPRINT` and `LPRINT USING` statements assume that your printer is an 80-character-wide printer.
+```vb
+LPRINT "This is on line 1"
+LPRINT "This is on";
+LPRINT " line 2"
+```
 
-To reset the number of characters that you can print across the printed page (assuming that your printer is wider than 80 characters), see the [WIDTH](WIDTH) statement.
+Resulting in:
+
+```txt
+This is on line 1
+This is on line 2
+```
+
+## See Also
+
+- [LPRINT USING](LPRINT-USING), [WIDTH](WIDTH)

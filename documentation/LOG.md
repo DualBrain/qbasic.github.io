@@ -1,31 +1,27 @@
 # LOG
 
-To return the natural logarithm of *x*.
+Returns the natural logarithm of a numeric expression.
 
 ## Syntax
 
-`LOG(x)`
+`LOG`(*numeric_expression*)
 
 ## Comments
 
-*x* must be a number greater than zero.
+*numeric_expression* is any numeric expression greater than 0.
 
-`LOG(x)` is calculated in single precision.
+The natural logarithm is the logarithm to the base *e*.
 
 ## Examples
 
 ```vb
-PRINT LOG(2)
+PRINT LOG(1), LOG(EXP(1))
 ```
 
 ```text
- .6931471
+0
 ```
 
-```vb
-PRINT LOG(1)
-```
+## See Also
 
-```text
- 0
-```
+- [EXP](EXP)

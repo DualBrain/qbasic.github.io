@@ -1,25 +1,26 @@
 # LEFT$
 
-To return a string that comprises the left-most *n* characters of *x$*.
+Returns the specified number of characters beginning from the leftmost character of a string.
 
 ## Syntax
 
-`LEFT$(x$,n)`
+`LEFT$`(*string_expression*,*num_char*)
 
 ## Comments
 
-*n* must be within the range of 0 to 255. If *n* is greater than [LEN](LEN)`(x$)`, the entire string (*x$*) will be returned. If *n* equals zero, the null string (length zero) is returned (see the [MID$](MID$) and [RIGHT$](RIGHT$) substring functions).
+*string_expression* is any string expression.
+
+*num_char* is the number of characters to extract from the string. It must be in the range 0 through 32,767.
 
 ## Example
 
 ```vb
-10 A$ = "BASIC"
-20 B$ = LEFT$(A$, 3)
-30 PRINT B$
+s$ = "TEST STRING"
+FOR i = 1 TO LEN(s$)
+  PRINT LEFT$(s$, i)
+NEXT i
 ```
 
-```text
- BAS
-```
+## See Also
 
-The left-most three letters (*BAS*) of the string "BASIC" are printed on the screen.
+- [INSTR](INSTR), [LEN](LEN), [MID$](MID$), [RIGHT$](RIGHT$)
