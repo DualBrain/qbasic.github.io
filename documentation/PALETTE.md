@@ -1,14 +1,26 @@
 # PALETTE
 
-Changes one or more of the colors in the palette
+Change one or more colors in the color palette.
 
 ## Syntax
 
-`PALETTE [attribute,color]`
+`PALETTE` [*change_color*, *new_color*]
 
-`PALETTE USING integer-array-name (arrayindex)`
+`PALETTE USING` *array*[( *index*)]
 
 ## Comments
+
+*change_color* is the attribute to change.
+
+*new_color* is the new color to assign to the attribute.
+
+*array* is an array of color numbers to assign to the attributes available in the current screen mode.
+
+*index* is the index of the first element in the array to use in setting the palette.
+
+If you omit all arguments, `PALETTE` restores the default color values.
+
+## History
 
 The `PALETTE` statement works only for systems equipped with the IBM® Enhanced Graphics Adapter (EGA). A BASIC palette contains a set of colors, with each color specified by an *attribute*. Each *attribute* is paired with an actual display *color*. This *color* determines the actual visual color on the screen, and is dependent on the setting of your screen mode and your actual physical hardware display.
 
@@ -98,3 +110,7 @@ PALETTE              'Sets each palette entry to its appropriate
                      'initial display color. Actual initial colors 
                      'depend on your screen hardware configuration.
 ```
+
+## See Also
+
+- [COLOR](COLOR), [SCREEN](SCREEN)

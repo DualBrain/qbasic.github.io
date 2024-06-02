@@ -1,24 +1,34 @@
 # PMAP
 
-To map expressions to logical or physical coordinates.
+Maps a physical coordinate to a logical coordinate defined by the [WINDOW](WINDOW) statement or vice versa.
 
 ## Syntax
 
-`x=PMAP (exp,function)`
+x=`PMAP`(*coordinate*, *mapping*)
 
 ## Comments
 
-This function is valid for graphics modes only.
+*coordinate* is a numeric expression of the coordinate to be mapped.
 
-*x* is the physical coordinate of the point that is to be mapped.
+*mapping* specifies the type of conversation:
 
-*exp* is a numeric variable or expression.
-
-| Function | Maps |
+| Value | Maps |
 | -------- | ---- |
 | 0 | logical expressions to physical x |
 | 1 | logical expressions to physical y |
 | 2 | physical expressions to logical x |
 | 3 | physical expressions to logical y |
 
-`PMAP` is used with [WINDOW](WINDOW) and [VIEW](VIEW) to translate coordinates.
+## Example
+
+```vb
+SCREEN 1 
+WINDOW SCREEN (0, 0)-(100, 100)
+'Convert logical to physical
+x = PMAP(50, 0)
+y = PMAP(50, 1)
+```
+
+## See Also
+
+- [VIEW](VIEW), [WINDOW](WINDOW)

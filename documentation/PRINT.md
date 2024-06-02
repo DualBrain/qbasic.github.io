@@ -1,22 +1,18 @@
 # PRINT
 
-To output a display to the screen.
+Writes to the screen or a sequential file.
 
 ## Syntax
 
-`PRINT [list of expressions][;]`
-
-`?[list of expressions][;]`
+`PRINT` [# *file_number*,] [*output_list*][{;|,}]
 
 ## Comments
 
-If list of expressions is omitted, a blank line is displayed.
+*file_number* is the number of the file to which output is written. If you omit *file_number*, QBasic writes the data to the screen.
 
-If list of expressions is included, the values of the expressions are displayed. Expressions in the list may be numeric and/or string expressions, separated by commas, spaces, or semicolons. String constants in the list must be enclosed in double quotation marks.
+*output_list* is a list of one or more expressions to output.
 
-For more information about strings, see the [STRING$](STRING$) function.
-
-A question mark (`?`) may be used in place of the word `PRINT` when using the BASIC program editor.
+If a semicolon ends the `PRINT` line, the next `PRINT` statement continues on the same line in the next character position. If a comma ends the line, the next `PRINT` statement continues on the same line in the next print zone. Print zones are 14 characters in length. Omitting a semicolon or comma causes the next `PRINT` statement to begin on the next line.
 
 ## Print Positions
 
@@ -36,15 +32,17 @@ When numbers are printed on the screen, the numbers are always followed by a spa
 
 See the [LPRINT](LPRINT) and [LPRINT USING](LPRINT-USING) statements for information on sending data to be printed on a printer.
 
-## Examples
+## Example
 
 ```vb
-10 X$= STRING$(10,45)
-20 PRINT X$"MONTHLY REPORT" X$
+X$= STRING$(10,45)
+PRINT X$"MONTHLY REPORT" X$
 ```
 
 ```text
 ----------MONTHLY REPORT----------
-``` 
+```
 
-`45` is the decimal equivalent of the ASCII symbol for the minus (`-`) sign.
+## See Also
+
+- [LPRINT](LPRINT), [LPRINT USING](LPRINT-USING), [PRINT USING](PRINT-USING)

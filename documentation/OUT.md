@@ -1,27 +1,21 @@
 # OUT
 
-To send a byte to a machine output port.
+Send s a byte to the specified port.
 
 ## Syntax
 
-`OUT h,j`
+`OUT` *port_number*, *byte_value*
 
 ## Comments
 
-*h* and *j* are integer expressions. *h* may be within the range of 0 to 65535. *j* may be within the range of 0 to 255. *h* is a machine port number, and *j* is the data to be transmitted.
+*port_number* is an integer expression in the range of 0 through 65,535 that identifies the port.
 
-`OUT` is the complementary statement to the [INP](INP) function.
+*byte_value* is an integer expression in the range of 0 through 255 to send to the port.
 
 ## Example
 
-```vb
-100 OUT 12345,225
-```
+See [INP](INP).
 
-Outputs the decimal value 225 to port number 12345. In assembly language, this is equivalent to the following:
+## See Also
 
-```vb
-MOV DX,12345
-MOV AL,255
-OUT DX,AL
-```
+- [INP](INP).

@@ -1,12 +1,16 @@
 # PRINT USING
 
-To print strings or numbers using a specified format.
+Writes formatted output to the screen display or a file.
 
 ## Syntax
 
-`PRINT USING string expressions;list of expressions[;]`
+`PRINT` [[#]*file_number*,] `USING` *format_list*; *output_list*[{ ;|,}]
 
 ## Comments
+
+*file_number* is the number of the file to which output is written. If you omit *file_number*, QBasic writes the data to the screen.
+
+*format_list* is a string expression containing one or more of the format specifiers, see below.
 
 *string expressions* is a string literal or variable consisting of special formatting characters. The formatting characters determine the field and the format of printed strings or numbers.
 

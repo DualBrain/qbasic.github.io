@@ -1,19 +1,36 @@
 # OPTION BASE
 
-To declare the minimum value for array subscripts.
+Sets the default lower array bound.
 
 ## Syntax
 
-`OPTION BASE n`
+`OPTION BASE` {0 | 1}
 
 ## Comments
 
-*n* is `1` or `0`. The default base is `0`.
+If you don't specify the default bound, QBasic uses 0.
 
-If the statement `OPTION BASE 1` is executed, the lowest value an array subscript can have is `1`.
+You can specify only one `OPTION BASE` statement per module.
 
-An array subscript may never have a negative value.
+For more flexibility, use the `TO` clause in the [DIM](DIM) statement.
 
-`OPTION BASE` gives an error only if you change the base value. This allows chained programs to have `OPTION BASE` statements as long as the value is not changed from the initial setting.
+## Example
 
-> You must code the `OPTION BASE` statement before you can define or use any arrays. If an attempt is made to change the option base value after any arrays are in use, an error results.
+```vb
+OPTION BASE 0
+DIM a(1 TO 20)
+DIM b(20)
+PRINT LBOUND(a). LBOUND(b)
+PRINT UBOUND(a), UBOUND(b)
+```
+
+Results in:
+
+```txt
+1           0
+20          20
+```
+
+## See Also
+
+- [DIM](DIM), [LBOUND](LBOUND), [REDIM](REDIM), [UBOUND](UBOUND)

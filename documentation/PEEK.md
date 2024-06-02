@@ -1,23 +1,29 @@
 # PEEK
 
-To read from a specified memory location.
+Returns the byte stored at a specified memory offset.
 
 ## Syntax
 
-`PEEK(a)`
+`PEEK`(*offset*)
 
 ## Comments
 
-Returns the byte (decimal integer within the range of 0 to 255) read from the specified memory location a. a must be within the range of 0 to 65535.
+*offset* is an integer expression (in the range 0 through 65,535) that specifies an offset within the current default segment.
 
-The [DEF SEG](DEF-SEG) statement last executed determines the absolute address that will be peeked into.
-
-`PEEK` is the complementary function to the [POKE](POKE) statement.
+The [DEF SEG](DEF-SEG) statement defines the default segment address.
 
 ## Example
 
 ```vb
-10 A=PEEK(&H5A00)
+' Save the screen's contents
+DIM screensav(3999) AS INTEGER
+DEF SEG = &HB800
+FOR i = 0 TO 3999
+  screensave(i) = PEEK(i)
+NEXT i
+DEF SEG
 ```
 
-The value of the byte, stored in user-assigned hex offset memory location 5A00 (23040 decimal), will be stored in the variable A.
+## See Also
+
+- [DEF SEG](DEF-SEG), [POKE](POKE)

@@ -1,12 +1,24 @@
 # PLAY
 
-To play music by embedding a music macro language into the string data type.
+Plays a tune specified by a string expression; additionally support play event trapping enabling/disabling.
 
 ## Syntax
 
-`PLAY string expression`
+`PLAY` *string_expression*
+
+`PLAY ON`
+
+`PLAY OFF`
+
+`PLAY STOP`
 
 ## Comments
+
+`PLAY ON` enables play event trapping.
+
+`PLAY OFF` disables play event trapping. All events that occur are ignored.
+
+`PLAY STOP` temporarily suspends play event trapping. All play events are processed after play event trapping is enabled.
 
 The single-character commands in `PLAY` are as follows:
 
@@ -44,7 +56,7 @@ Music staccato. Each note plays three-quarters of the time determined by `L`.
 
 `N(n)`
 
-Play note (n*. *n* may range from 0 to 84. In the 7 possible octaves, there are 84 notes. *n* set to 0 indicates a rest.
+Play note *n*. *n* may range from 0 to 84. In the 7 possible octaves, there are 84 notes. *n* set to 0 indicates a rest.
 
 `O(n)`
 
@@ -81,3 +93,19 @@ A less-than symbol preceding the note n plays the note in the next lower octave.
 > Numeric arguments follow the same syntax described under the [DRAW](DRAW) statement.
 
 *n* as an argument can be a constant, or it can be a variable with = in front of it (*= variable*). A semicolon is required after the variable and also after the variable in *Xstring*.
+
+## Example
+
+```vb
+'Play scale in 7 different octaves
+scale$ = "CDEFGAB"
+PLAY "L16"
+FOR i = TO 6
+  PLAY "0" + STR$(i)
+  PLAY "X" + VARPTR$(scale$)
+NEXT i
+```
+
+## See Also
+
+- [ON PLAY(n)](ON-PLAY(n)), [PLAY(n)](PLAY(n)), [SOUND](SOUND)

@@ -1,16 +1,40 @@
 # ON COM(n)
 
-To create an event trap line number for a specified event (such as communications, pressing function or cursor control keys, using the light pen, or using joysticks).
+Specify the first line of an event-trapping subroutine.
 
 ## Syntax
 
-``ON event specifier GOSUB line number``
+`ON COM`(*n*) `GOSUB` *location*
+
+`ON KEY`(*n*) `GOSUB` *location*
+
+`ON PEN GOSUB` *location*
+
+`ON PLAY`(*queuesize*) `GOSUB` *location*
+
+`ON STRIG`(*n*) `GOSUB` *location*
+
+`ON TIMER`(*n*) `GOSUB` *location*
 
 ## Comments
 
-The syntax shown sets up an event trap line number for the specified event. A *line number* of 0 disables trapping for this event.
+The `ON COM(n) GOSUB` statement branches to the subroutine whenever characters are received at the specified serial port.
 
-Once trap line numbers have been set, event trapping itself can be controlled with the following syntax lines:
+The `ON KEY(n) GOSUB` statement branches to the subroutine whenever the key associated with the specified number is pressed.
+
+The `ON PEN GOSUB` statement branches to the subroutine whenever the light pen is activated.
+
+The `ON PLAY(queuesize) GOSUB` statement branches to the subroutine whenever the number of notes in the music buffer goes from *queuesize* to *queuesize* - 1. The variable *queuesize* must be in the range 1 through 32.
+
+The `ON STRIG(n) GOSUB` statement branches to the subroutine whenever the specified joystick button is pressed. See [STRIG](STRIG) statement for valid values for *n*.
+
+The `ON TIMER(n) GOSUB` statement branches to the subroutine whenever the specified number of seconds have passed. The number of seconds must be in the range 1 through 86,400.
+
+These statements do not enable event trapping; they only associate a subroutine with an event.
+
+The syntax shown sets up an event trap line number for the specified event. A *location* of 0 disables trapping for this event.
+
+Once trap *locations* have been set, event trapping itself can be controlled with the following syntax lines:
 
 `event specifier ON`
 
@@ -48,7 +72,7 @@ The following are valid values for *event specifier*:
 * 14 = CURSOR DOWN
 * 15-20 are user-defined keys.
 
-`PEN`	
+`PEN`
 
 Since there is only one pen, no number is given.
 

@@ -1,22 +1,28 @@
 # PAINT
 
-To fill in a graphics figure with the selected attribute.
+Fills a graphics screen image with the specified color or pattern.
 
 ## Syntax
 
-`PAINT (x start,y start)[,paint attribute[,border attribute][,bckgrnd attribute]]`
+`PAINT`[`STEP`] (*x*, *y*) [, [{*color* | *tile*}] [, [ *bordercolor*] [, *background*]]]
 
 ## Comments
 
-The `PAINT` statement fills in an arbitrary graphics figure of the specified *border attribute* with the specified *paint attribute*. If *paint attribute* is not given, it will default to the foreground attribute (3 or 1). *border attribute* defaults to *paint attribute*. See the [COLOR](COLOR) and [PALETTE](PALETTE) statements for more information.
+The keyword `STEP` indicates that *x* and *y* are offsets from the current graphics position as opposed to physical coordinates.
 
-`PAINT` must start on a non-border point, otherwise, `PAINT` will have no effect.
+*x*, *y* is a set of coordinates within the graphics image.
 
-`PAINT` can fill any figure, but painting jagged edges or very complex figures may result in an "Out of memory" error. The [CLEAR](CLEAR) statement may be used to increase the amount of stack space available.
+*color* is the desired fill color. If you omit *color*, `PAINT` uses the current foreground color.
 
-Points that are specified outside the limits of the screen will not be plotted and no error will occur.
+*tile* is a fill pattern 8 bits wide and up to 64 bits long that is defined as follows:
 
-See the [SCREEN](SCREEN) statement for a description of the different screen modes.
+*tile$* = [CHR$](CHR$)(*n*) [+ [CHR$](CHR$)(*n*)]...
+
+Where the values of *n* are integers between 0 and 255. Each [CHR$](CHR$)(*n*) defines a 1-byte, 8-pixel slice of the fill pattern based on the binary form of the number.
+
+*bordercolor* is the color of the border surrounding the graphics image. If you omit *bordercolor*, `PAINT` uses *color*.
+
+*background* is a one-character string that specifies a background pattern that can be painted over. If you omit *background*, `PAINT` uses [CHR$](CHR$)(0).
 
 ## Paint Tiling
 
@@ -82,11 +88,13 @@ You cannot specify more than two consecutive bytes in the tile string that match
 ## Example
 
 ```vb
-10 CLS
-20 SCREEN 1
-30 LINE (0, 0)-(100, 150), 2, B
-40 PAINT (50, 50), 1, 2
-50 LOCATE 20, 1
+CLS
+SCREEN 1
+LINE (0, 0)-(100, 150), 2, B
+PAINT (50, 50), 1, 2
+LOCATE 20, 1
 ```
 
-The `PAINT` statement in line 40 fills in the box drawn in line 30 with  color 1.
+## See Also
+
+- [CIRCLE](CIRCLE), [COLOR](COLOR), [DRAW](DRAW), [LINE](LINE), [POINT](POINT), [PRESET](PRESET), [PSET](PSET), [SCREEN](SCREEN)

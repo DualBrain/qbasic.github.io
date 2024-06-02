@@ -1,23 +1,22 @@
 # PCOPY
 
-To copy one screen page to another in all screen modes.
+Copies one video display page to another.
 
 ## Syntax
 
-`PCOPY sourcepage, destinationpage`
+`PCOPY` *source_page*, *target_page*
 
 ## Comments
 
-The *sourcepage* is an integer expression in the range 0 to *n*, where *n* is determined by the current video-memory size and the size per page for the current screen mode.
+*source_page* is an integer expression that specifies the video display page to be copied.
 
-The *destinationpage* has the same requirements as the *sourcepage*.
+*target_page* is an integer expression that specifies the video display page to which the source page is to be copied.
 
-For more information, see [CLEAR](CLEAR) and [SCREEN](SCREEN).
+The number of video display pages available is dependent on the video memory size and video display mode.
 
 ## Example
 
-This copies the contents of page 1 to page 2:
-
 ```vb
-PCOPY 1,2
+'Copy video page 1 to page 3
+PCOPY 1, 3
 ```

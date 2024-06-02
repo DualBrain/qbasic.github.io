@@ -4,9 +4,9 @@ To branch to one of several specified line numbers, depending on the value retur
 
 ## Syntax
 
-`ON expression GOTO line numbers`
+`ON` *numeric_expression* `GOTO` *location*[ ,*location*]...
 
-`ON expression GOSUB line numbers`
+`ON` *numeric_expression* `GOSUB` *location*[ ,*location*]...
 
 ## Comments
 
