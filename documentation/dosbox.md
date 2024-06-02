@@ -8,8 +8,9 @@ Download [DosBox](https://www.dosbox.com/).
 
 A couple of options for where to find QBasic...
 
-- [WinWorld - MS-DOS 5.0](https://winworldpc.com/product/ms-dos/50)
-- [WinWorld - Windows 95 RTM](https://winworldpc.com/product/windows-95/rtm)
+- The original MS-DOS installation diskettes, version 5.0+.
+- It's also included on the original disc of the Windows 95 installation CD-ROM.
+- It may also be on later versions of Windows...
 
 To my knowledge the "last version" is the one available on the Windows 95 installation disc under the `OTHER\OLDMSDOS` folder.
 
