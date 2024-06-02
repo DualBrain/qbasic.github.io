@@ -1,6 +1,6 @@
 # RESET
 
-To close all disk files and write the directory information to a diskette before it is removed from a disk drive.
+Writes on disk any data still in the file buffers and closes all disk files.
 
 ## Syntax
 
@@ -8,6 +8,14 @@ To close all disk files and write the directory information to a diskette before
 
 ## Comments
 
-Always execute a `RESET` command before removing a diskette from a disk drive. Otherwise, when the diskette is used again, it will not have the current directory information written on the directory track.
+`RESET` closes all open files at once. You can use the `CLOSE` statement to close files individually.
 
-`RESET` closes all open files on all drives and writes the directory track to every diskette with open files.
+## Example
+
+```vb
+RESET
+```
+
+## See Also
+
+- [CLOSE](CLOSE), [OPEN](OPEN)

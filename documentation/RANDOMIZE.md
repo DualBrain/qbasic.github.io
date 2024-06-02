@@ -1,41 +1,29 @@
 # RANDOMIZE
 
-To reseed the random number generator.
+Initializes the random number generator.
 
 ## Syntax
 
-`RANDOMIZE expression`
-
-`RANDOMIZE TIMER`
+`RANDOMIZE` [ *seed*]
 
 ## Comments
 
-If the random number generator is not reseeded, the [RND](RND) function returns the same sequence of random numbers each time the program is run.
+*seed* is an integer expression that initializes the random number generator. If you omit *see*, `RANDOMIZE` prompts the user to enter it.
 
-To change the sequence of random numbers every time the program is run, place a `RANDOMIZE` statement at the beginning of the program, and change the argument with each run (see [RND](RND) function).
-
-`RANDOMIZE expression` will not force floating-point values to integer. *expression* may be any numeric formula.
+## Example
 
 ```vb
-RANDOMIZE TIMER 
+'Print fifty random numbers
+'using ten different seeds
+FOR i = 1 TO 100
+  PRINT "Seed"; i
+  RANDOMIZE i
+  FOR j = 1 TO 5
+    PRINT RND
+  NEXT j
+NEXT i
 ```
 
-## Examples
+## See Also
 
-The internal clock can be set at intervals.
-
-```vb
-RANDOMIZE TIMER
-FOR I = 1 to 5
-  PRINT RND;
-NEXT I
-```
-
-The internal clock can be used for random number seed.
-
-```vb
-N = VAL(MID$(TIME$, 7, 2)) 'get seconds for seed
-RANDOMIZE N                'install number
-PRINT N                    'print seconds
-PRINT RND                  'print random number generated
-```
+- [RND](RND), [TIMER](TIMER)

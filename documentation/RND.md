@@ -1,35 +1,32 @@
 # RND
 
-To return a random number between 0 and 1.
+Returns a single-precision random number between 0 and 1.
 
 ## Syntax
 
-`RND[(x)]`
+`RND`[ (*numeric_expression*)]
 
 ## Comments
 
-The same sequence of random numbers is generated each time the program is run unless the random number generator is reseeded (see [RANDOMIZE](RANDOMIZE) statement). If *x* is equal to zero, then the last number is repeated.
+*numeric_expression* specifies how `RND` generates the next random number:
 
-If *x* is greater than 0, or if *x* is omitted, the next random number in the sequence is generated.
+| Value | Generates |
+| --- | --- |
+| Less than 0 | The same number for any given *numeric_expression* |
+| Equal to 0 | The last number generated |
+| Greater than 0 | The next random number |
 
-To get a random number within the range of zero through *n*, use the following formula:
-
-```vb
-INT(RND*(n+1))
-```
-
-The random number generator may be seeded by using a negative value for *x*.
+If you omit *numeric_expression*, `RND` generates the next number in the sequence.
 
 ## Example
 
 ```vb
-10 FOR I = 1 TO 5
-20   PRINT INT(RND * 101);
-30 NEXT
+'Print ten random numbers
+FOR i = 1 TO 10
+  PRINT INT(RND * 10)
+NEXT i
 ```
 
-```text
- 53 30 31 51 5
-```
+## See Also
 
-Generates five pseudo-random numbers within the range of `0-100`.
+- [RANDOMIZE](RANDOMIZE)

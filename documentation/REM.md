@@ -1,36 +1,22 @@
 # REM
 
-To allow explanatory remarks to be inserted in a program.
+Allows explanatory comments or remarks on a program line.
 
 ## Syntax
 
-`REM[comment]`
-
-`'[comment]`
+`REM` *comment*
 
 ## Comments
 
-`REM` statements are not executed, but are output exactly as entered when the program is listed.
+*comment* is any text.
 
-Once a `REM` or its abbreviation, an apostrophe (`'`), is encountered, the program ignores everything else until the next line number or program end is encountered.
+QBasic ignores comment lines unless they contain compiler metacommands.
 
-`REM` statements may be branched into from a [GOTO](GOTO) or [GOSUB](GOSUB) statement, and execution continues with the first executable statement after the `REM` statement. However, the program runs faster if the branch is made to the first statement.
+QBasic supports the use of  a single quotation mark (') instead of the `REM` statement.
 
-Remarks may be added to the end of a line by preceding the remark with an apostrophe (`'`) instead of `REM`.
-
-> Do not use `REM` in a [DATA](DATA) statement because it will be considered to be legal data.
-
-## Examples
+## Example
 
 ```vb
-REM CALCULATE AVERAGE VELOCITY
-FOR I = 1 TO 20
-SUM = SUM + V(I)
-NEXT I
-```
-
-```vb
-FOR I = 1 TO 20 ' CALCULATED AVERAGE VELOCITY
-  SUM = SUM + V(I)
-NEXT I
+REM This is a comment
+'This is a comment
 ```

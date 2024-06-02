@@ -1,16 +1,14 @@
 # RESTORE
 
-To allow [DATA](DATA) statements to be reread from a specified line.
+Allows [READ](READ) to reuse a previously read [DATA](DATA) statement.
 
 ## Syntax
 
-`RESTORE[line number]`
+`RESTORE` [ *location*]
 
 ## Comments
 
-If *line number* is specified, the next [READ](READ) statement accesses the first item in the specified [DATA](DATA) statement.
-
-If *line number* is omitted, the next [READ](READ) statement accesses the first item in the first [DATA](DATA) statement.
+*location* is the line number or label of the [DATA](DATA) statement to read next. If you omit *location*, the next [READ](READ) uses the first [DATA](DATA) statement in the program.
 
 ## Example
 
@@ -22,3 +20,7 @@ DATA 57, 68, 79
 ```
 
 Assigns the value `57` to both `A` and `D` variables, `68` to `B` and `E`, and so on.
+
+## See Also
+
+- [DATA](DATA), [READ](READ)

@@ -1,16 +1,14 @@
 # READ
 
-To read values from a [DATA](DATA) statement and assign them to variables.
+Reads values from a data list and assigns them to variables.
 
 ## Syntax
 
-`READ list of variables`
+`READ` *variable_list*
 
 ## Comments
 
-A `READ` statement must always be used with a [DATA](DATA) statement.
-
-`READ` statements assign variables to [DATA](DATA) statement values on a one-to-one basis.
+*variable_list* is a list of variables separated by commas. `READ` and [DATA](DATA) statements work hand in hand to assign values to these variables.
 
 `READ` statement variables may be numeric or string, and the values read must agree with the variable types specified. If they do not agree, a `Syntax error` results.
 
@@ -20,9 +18,9 @@ If the number of variables in list of variables exceeds the number of elements i
 
 If the number of variables specified is fewer than the number of elements in the [DATA](DATA) statement(s), subsequent `READ` statements begin reading data at the first unread element. If there are no subsequent `READ` statements, the extra data is ignored.
 
-To reread [DATA](DATA) statements from the start, use the `RESTORE` statement.
+To reread [DATA](DATA) statements from the start, use the [RESTORE](RESTORE) statement.
 
-## Examples
+## Example
 
 ```vb
 FOR I = 1 TO 10
@@ -44,3 +42,7 @@ PRINT C$, S$, Z
 ```
 
 This program reads string and numeric data from the [DATA](DATA) statement.
+
+## See Also
+
+- [DATA](DATA), [RESTORE](RESTORE)

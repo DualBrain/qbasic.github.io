@@ -1,21 +1,23 @@
 # RMDIR
 
-To delete a subdirectory.
+Removes the specified directory.
 
 ## Syntax
 
-`RMDIR pathname`
+`RMDIR` *directory_name*
 
 ## Comment
 
-*pathname* is a string expression, not exceeding 63 characters, identifying the subdirectory to be removed from its parent.
+*directory_name* is a string expression containing the name of the directory to delete.
 
-The subdirectory to be deleted must be empty of all files except "." and ".." or a `Path file/access error` is given.
+`RMDIR` works like the MS-DOS `RMDIR` command. It cannot delete the current directory or a directory containing files.
 
 ## Example
 
-Referring to the sample directory structure illustrated in [CHDIR](CHDIR), the following command deletes the subdirectory *report*:
-
 ```vb
-RMDIR "SALES\JOHN\REPORT"
+RMDIR "A:\TEST"
 ```
+
+## See Also
+
+- [CHDIR](CHDIR), [MKDIR](MKDIR)

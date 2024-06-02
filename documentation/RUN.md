@@ -1,31 +1,29 @@
 # RUN
 
-To execute the program currently in memory, or to load a file from the diskette into memory and run it.
+Runs the program currently in memory or an existing program from disk.
 
 ## Syntax
 
-`RUN [line number][,r]`
+`RUN` [ *line_number*]
 
-`RUN filename[,r]`
+*or*
+
+`RUN` [ *filename*]
 
 ## Comments
 
-`RUN` or `RUN line number` runs the program currently in memory.
+*line_number* is a line number in the current program at which execution should begin. If you omit *line_number*, `RUN` begins at the first line number.
 
-If *line number* is specified, execution begins on that line. Otherwise, execution begins at the lower line number.
+*file_name* is a string expression containing the name of a file to execute. QBasic assumes the `BAS` extension.
 
-If there is no program in memory when `RUN` is executed, BASIC returns to command level.
+`RUN` closes all files and erases all variables. To share variables, use the [CHAIN](CHAIN) statement.
 
-`RUN filename` closes all open files and deletes the current memory contents before loading the specified file from disk into memory and executing it.
-
-The `r` option keeps all data files open.
-
-If you are using the speaker on the computer, please note that executing the `RUN` command will turn off any sound that is currently running and will reset to Music Foreground. Also, the [PEN](PEN) and [STRIG](STRIG) Statements are reset to `OFF`.
-
-## Examples
+## Example
 
 ```vb
-RUN "NEWFIL", R
+RUN "FILENAME"
 ```
 
-Runs *NEWFIL.BAS* without closing data files.
+## See Also
+
+- [CHAIN](CHAIN)

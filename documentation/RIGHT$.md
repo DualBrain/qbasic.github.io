@@ -1,24 +1,27 @@
 # RIGHT$
 
-To return the rightmost *n* characters of string *x$*.
+Returns the specified number of characters from the rightmost characters in a string.
 
 ## Syntax
 
-`RIGHT$(x$,n)`
+`RIGHT$`(*string_expression*,*num_char*)
 
 ## Comments
 
-If *n* is equal to or greater than [LEN](LEN)`(x$)`, `RIGHT$` returns *x$*. If *n* equals zero, the null string (length zero) is returned (see the `MID$` and [LEFT$](LEFT$) functions).
+*string_expression* is any string expression.
+
+*num_char* is the number of characters to return. If *num_char* exceeds the length of the string, `RIGHT$` returns the entire string.
 
 ## Example
 
 ```vb
-10 A$ = "DISK BASIC"
-10 PRINT RIGHT$(A$, 5)
+A$ = "ABCDEFGHIJ"
+FOR I = 1 TO 10
+  PRINT RIGHT$(A$, I)
+NEXT I
+
 ```
 
-```text
- BASIC
-```
+## See Also
 
-Prints the rightmost five characters in the A$ string.
+- [INSTR](INSTR), [LEFT$](LEFT$), [LEN](LEN), [MID$](MID$)

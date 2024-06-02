@@ -1,35 +1,34 @@
 # RESUME
 
-To continue program execution after an error-recovery procedure has been performed.
+Continues program execution from an error-trapping handler.
 
 ## Syntax
 
-`RESUME`
-
-`RESUME 0`
+`RESUME` [ *location*]
 
 `RESUME NEXT`
 
-`RESUME line number `
-
 ## Comments
 
-Any one of the four formats shown above may be used, depending upon where execution is to resume:
+*location* is the line number or label at which execution should continue. If you specify 0 or omit *location*, execution continues at the statement causing the error.
 
-- `RESUME` or `RESUME 0` Execution resumes at the statement that caused an error.
-- `RESUME NEXT` Execution resumes at the statement immediately following the one that caused an error.
-- `RESUME line number` Execution resumes at the specified line number.
-
-A `RESUME` statement that is not in an error trapping routine causes a `RESUME without error` message to be printed.
+The keyword `NEXT` continues execution at the statement immediately following the statement causing the error.
 
 ## Example
 
 ```vb
-10 ON ERROR GOTO 900
-.
-.
-.
-900 IF (ERR = 230) AND (ERL = 90) THEN PRINT "TRY AGAIN": RESUME 80
+ON ERROR GOTO Handler
+OPEN "A:TEST.DAT" FOR INPUT AS #1
+'statements
+END
+
+Handler:
+  PRINT "Place disk containing TEST. DAT"
+  PRINT "in drive A. Press Enter."
+  INPUT dummy$
+  RESUME
 ```
 
-If an error occurs after line 10 is executed, the action indicated in line 900 is taken and the program continues at line 80.
+## See Also
+
+- [ERROR](ERROR), [ON ERROR GOTO](ON-ERROR-GOTO)
