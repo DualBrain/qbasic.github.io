@@ -1,21 +1,25 @@
 # NAME
 
-To change the name of a disk file.
+Renames a file or directory on disk.
 
 ## Syntax
 
-`NAME old filename AS new filename`
+`NAME` *old_filename* `AS` *new_filename*
 
 ## Comments
 
-*old filename* must exist and *new filename* must not exist; otherwise, an error results.
+*old_filename* is a string expression containing the name of an existing MS-DOS file.
 
-After a `NAME` command, the file exists on the same diskette, in the same disk location, with the new name.
+*new_filename* is a string expression containing the desired filename. A file with this name cannot already exist on disk.
+
+*new_filename* must be on the same disk as *old_filename*.
 
 ## Example
 
 ```vb
-NAME "ACCTS" AS "LEDGER"
+NAME "OLDFILE.DAT" AS "NEWFILE.DAT"
 ```
 
-The file formerly named *ACCTS* will now be named *LEDGER*. The file content and physical location on the diskette is unchanged.
+## See Also
+
+- [FILES](FILES)

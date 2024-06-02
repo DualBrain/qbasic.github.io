@@ -1,33 +1,19 @@
-# MKI$, MKD$, MKS$
+# MKI$
 
-To convert numeric values to string values.
+Converts an integer value to a 2-byte string for output to a random-access file by [PUT#](PUT-FILE).
 
 ## Syntax
 
-`MKI$(integer expression)`
-
-`MKS$(single-precision expression)`
-
-`MKD$(double-precision expression)`
+`MKI$`(*numeric_expression*)
 
 ## Comments
 
-`MKI$` converts an integer to a 2-byte string.
-
-`MKS$` converts a single-precision number to a 4-byte string.
-
-`MKD$` converts a double-precision number to an 8-byte string.
-
-Any numeric value placed in a random file buffer with a [LSET](LSET) or a [RSET](RSET) statement must be converted to a string (see [CVI](CVI), [CVS](CVS), [CVD](CVD) for the complementary functions).
-
-These functions differ from [STR$](STR$) because they change the interpretations of the bytes, not the bytes themselves.
+*numeric_expression* is an integer numeric expression.
 
 ## Example
 
-```vb
-90 AMT=(K+T)
-100 FIELD #1, 8 AS D$, 20 AS N$
-110 LSET D$=MKS$(AMT)
-120 LSET N$=A$
-130 PUT #1
-```
+See [MKD$](MKD$).
+
+## See Also
+
+- [CVD](CVD), [CVDMBF$](CVDMBF$), [CVI](CVI), [CVL](CVL), [CVS](CVS), [CVSMBF$](CVSMBF$), [MKD$](MKD$), [MKDMBF$](MKDMBF$), [MKL$](MKL$), [MKS$](MKS$), [MKSMBF$](MKSMBF$)

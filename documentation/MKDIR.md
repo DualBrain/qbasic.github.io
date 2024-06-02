@@ -1,19 +1,31 @@
 # MKDIR
 
-To create a subdirectory.
+Creates the specified MS-DOS subdirectory.
 
 ## Syntax
 
-`MKDIR pathname`
+`MKDIR` *directory_name*
 
 ## Comments
 
-*pathname* is a string expression, not exceeding 63 characters, identifying the subdirectory to be created.
+*directory_name* is a string expression that specifies the subdirectory to create.
 
 ## Example
 
 ```vb
-MKDIR "C:SALES\JOHN"
+ON ERROR GOTO CheckExists
+MKDIR "TESTDIR"
+PRINT "Directory TESTDIR created"
+Done:
+  END
+CheckExists:
+  IF ERR = 75 THEN
+    PRINT "Directory TESTDIR already exists"
+    RESUME Done
+  END IF 
+  ON ERROR GOTO 0
 ```
 
-Creates the subdirectory *JOHN* within the directory of *SALES*.
+## See Also
+
+- [CHDIR](CHDIR), [RMDIR](RMDIR)

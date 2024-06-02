@@ -1,29 +1,21 @@
 # OCT$
 
-To convert a decimal value to an octal value.
+Returns a string containing the octal representation of an integer expression.
 
 ## Syntax
 
-`OCT$(x)`
+`OCT$`(*numeric_expression*)
 
 ## Comments
 
-*x* is rounded to an integer before `OCT$(x)` is evaluated.
+Octal is the base-8 numbering system.
 
-This statement converts a decimal value within the range of -32768 to +65535 to an octal string expression.
-
-Octal numbers are numbers to the base 8 rather than base 10 (decimal numbers).
-
-See the [HEX$](HEX$) function for hexadecimal conversion.
+*numeric_expression* is any numeric expression.
 
 ## Example
 
-```vb
-10 PRINT OCT$(18)
-```
+See [HEX$](HEX$).
 
-```text
- 22
-```
+## See Also
 
-Decimal 18 equals octal 22.
+- [HEX$](HEX$)

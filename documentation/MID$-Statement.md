@@ -1,33 +1,33 @@
 # MID$ (Statement)
 
-To replace a portion of one string with another string.
+Replaces a portion of a string with another string.
 
 ## Syntax
 
-`MID$(stringexp1,n[,m])=stringexp2`
+`MID$`(*string_variable*,*start_offset*[ ,*num_char*])=*string_expression*
 
 ## Comments
 
-Both *n* and *m* are integer expressions.
+*string_variable* is the string variable to be modified.
 
-*stringexp1* and *stringexp2* are string expressions.
+*start_offset* is the position of the first character to be replaced in the string variable.
 
-The characters in *stringexp1*, beginning at position *n*, are replaced by the characters in *stringexp2*.
+*num_char* is the number of characters in the string to replace. If you omit this value, `MID$` uses the length of the replacement string.
 
-The optional *m* refers to the number of characters from *stringexp2* that are used in the replacement. If *m* is omitted, all of *stringexp2* is used.
-
-Whether *m* is omitted or included, the replacement of characters never goes beyond the original length of *stringexp1*.
+*string_expression* is any string expression.
 
 ## Example
 
 ```vb
-10 A$="KANSAS CITY, MO"
-20 MID$(A$, 14)="KS"
-30 PRINT A$
+a$ = "ABCDEF"
+MID$(a$, 2, 2) = "bc"
+PRINT a$
 ```
 
 ```text
- KANSAS CITY, KS
+ABcDEF
 ```
 
-Line 20 overwrites "MO" in the *A$* string with "KS".
+## See Also
+
+- [INSTR](INSTR), [LEFT$](LEFT$), [LEN](LEN), [RIGHT$](RIGHT$)

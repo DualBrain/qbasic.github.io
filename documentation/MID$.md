@@ -1,37 +1,34 @@
 # MID$
 
-To return a string of m characters from *x$* beginning with the *nth* character.
+Returns a substring of a string expression that begins at the specified offset location.
 
 ## Syntax
 
-`MID$(x$,n[,m])`
+`MID$`(*string_expression*,*start_offset*[ ,*length*])
 
 ## Comments
 
-*n* must be within the range of `1` to `255`.
+*string_expression* is any string expression.
 
-*m* must be within the range of `0` to `255`.
+*start_offset* is the position of the first character of the substring.
 
-If *m* is omitted, or if there are fewer than *m* characters to the right of *n*, all rightmost characters beginning with *n* are returned.
-
-If *n* > [LEN](LEN)`(x$)`, `MID$` function returns a null string.
-
-If *m* equals `0`, the `MID$` function returns a null string.
-
-If either *n* or *m* is out of range, an `Illegal function call error` is returned.
-
-For more information and examples, see the [LEFT$](LEFT$) and [RIGHT$](RIGHT$) functions.
+*length* is the number of characters in the substring. If you omit *length*, `MID$` returns all characters from *start_offset* through the end of the string.
 
 ## Example
 
 ```vb
-10 A$ = "GOOD"
-20 B$ = "MORNING EVENING AFTERNOON"
-30 PRINT A$; MID$(B$, 8, 8)
+a$ = "ABCDEFGHI"
+PRINT MID$(a$, 1, 5)
+PRINT MID$(a$, 6)
 ```
+
+Results in:
 
 ```text
- GOOD EVENING
+ABCDE
+FGHI
 ```
 
-The last line concatenates (joins) the *A$* string to another string with a length of eight characters, beginning at position `8` within the *B$* string.
+## See Also
+
+- [INSTR](INSTR), [LEFT$](LEFT$), [LEN](LEN), [RIGHT$](RIGHT$)
