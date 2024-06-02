@@ -1,4 +1,4 @@
-# Introducing Community QBasic
+# Introducing the *Community QBasic* Project
 
 ![2024-01-22](images/community.qbasic.png)
 
