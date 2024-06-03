@@ -4,9 +4,7 @@ Future updates for planned releases will be maintained here as the project progr
 
 ## 0.0.1-beta
 
-Obviously the goal is to handle all QBasic functionality; but in order to set a reasonable initial goal am now mainly referencing [Dartmouth '1964](Dartmouth) and [MBASIC 4K](MBASIC) as inspiration for a starting point.
-
-### PLANNED
+The following has been implemented (to one degree or another):
 
 - [X] allow *line numbers*
 - [X] support *labels*
@@ -14,85 +12,101 @@ Obviously the goal is to handle all QBasic functionality; but in order to set a 
 - [X] [LET](LET) is optional; however, variable types are currently *inferred* based on initial expression type (determined)
 - [X] `+ - * / \ ^ () = < > >= <= <>`
 - [X] Operator Precedence ([IMP](IMP), [EQV](EQV), [XOR](XOR), [OR](OR), [AND](AND), [NOT](NOT), `= > >= < <= <>`, `+ - binary`, [MOD](MOD), `\`, `* /`, `+ - unary`, `^`)
-- [X] implement a full screen editor in the REPL (ex. MMBASIC)
+
+While the following still needs to be implemented:
+
 - add support for arrays
-- [X] add support for different numeric types; currently only supports INT32
 - add support for numeric suffix types (beyond string `$`)
-- [X] [ABS](ABS)
-- [X] [AND](AND)
-- [X] [ASC](ASC)
-- [X] [ATN](ATN)
-- [X] [CHDIR](CHDIR)
-- [X] [CHR$](CHR$)
-- [X] [CLEAR](CLEAR)
-- [X] [CLS](CLS)
-- [X] [CONST](CONST)
-- [X] [COS](COS)
-- [DATA](DATA)
-- [X] [DEF FN](DEF-FN)
-- [DIM](DIM) *array*
-- [X] [DIM](DIM) *variable declaration*
-- [X] [EDIT](EDIT) *command*
-- [X] [END](END)
-- [X] [EQV](EQV)
-- [X] [EXP](EXP)
-- [X] [FILES](FILES)
-- [X] [FOR](FOR)
-- [X] [FUNCTION](FUNCTION)
-- [X] [GOSUB](GOSUB)
-- [X] [GOTO](GOTO) *line number*
-- [X] [GOTO](GOTO) *label*
-- [X] [HEX$](HEX$)
-- [X] [IF...THEN](IF...THEN)
-- [X] [IMP](IMP)
-- [X] [INPUT](INPUT)
-- [X] [INSTR](INSTR)
-- [X] [INT](INT)
-- [X] [KILL](KILL)
-- [LBOUND](LBOUND)
-- [X] [LCASE$](LCASE$)
-- [X] [LEFT$](LEFT$)
-- [X] [LEN](LEN)
-- [X] [LET](LET)
-- [X] [LIST](LIST) *command*
-- [X] [LOAD](LOAD) *command*
-- [X] [LOG](LOG)
-- [X] [MID$](MID$) *function*
-- [X] [MID$](MID$) *statement*
-- [X] [MKDIR](MKDIR)
-- [X] [MOD](MOD)
-- [X] [NAME](NAME)
-- [X] [NEW](NEW) *command*
-- [X] [NEXT](NEXT)
-- [X] [NOT](NOT)
-- [X] [OCT$](OCT$)
-- [X] [OPTION BASE](OPTION-BASE)
-- [X] [OR](OR)
-- [X] [PRINT](PRINT)
-- [X] [QUIT](QUIT) *command*
-- [READ](READ)
-- [REDIM](REDIM)
-- [X] [REM](REM)
-- [X] [RETURN](RETURN) *gosub*
-- [X] [RETURN](RETURN) *result*
-- [X] [RIGHT$](RIGHT)
-- [X] [RND](RND)
-- [X] [RMDIR](RMDIR)
-- [X] [RUN](RUN) *command*
-- [X] [SAVE](SAVE) *command*
-- [X] [SGN](SGN)
-- [X] [SIN](SIN)
-- [X] [SPACE$](SPACE$)
-- [X] [SPC](SPC)
-- [X] [SQR](SQR)
-- [X] [STOP](STOP)
-- [X] [STR$](STR$)
-- [X] [STRING$](STRING$)
-- [X] [SYSTEM](SYSTEM)
-- [X] [TAB](TAB)
-- [X] [TAN](TAN)
-- [UBOUND](UBOUND)
-- [X] [UCASE$](UCASE$)
-- [X] [VAL](VAL)
-- [X] [WHILE...WEND](WHILE...WEND)
-- [X] [XOR](XOR)
+- add support for different numeric types; currently only supports INT32
+
+The keywords below have been implemented if presented as a link to the documentation; otherwise, still needs to be handled.
+
+### A
+
+[ABS](ABS), ABSOLUTE, ACCESS, [AND](AND), ANY, APPEND, AS, [ASC](ASC), [ATN](ATN)
+
+### B
+
+[BASE](BASE), BEEP, BINARY, BLOAD, [Boolean Operators](boolean), BSAVE
+
+### C
+
+CALL, CALL ABSOLUTE, CASE, CDBL, CHAIN, [CHDIR](CHDIR), [CHR$](CHR$), CINT, CIRLCE, [CLEAR](CLEAR), CLNG, CLOSE, [CLS](CLS), [COLOR](COLOR), COM(n), COMMON, [CONST](CONST), [COS](COS), CSNG, CSRLIN, CVD, CVDMBF, CVI, CVL, CVS, CVSMBF
+
+### D
+
+DATA, DATE$, DECLARE, [DEF FN](DEF-FN), DEF SEG, DEFDBL, DEFINT, DEFLNG, DEFSNG, DEFSTR, [DIM](DIM), DO...LOOP, DO UNTIL, DO WHILE, DOUBLE, DRAW
+
+### E
+
+ELSE, ELSEIF, [END](END), END IF, ENVIRON, ENVIRON$, EOF, [EQV](EQV), ERASE, ERDEV, ERDEV$, ERL, ERR, ERROR, EXIT, [EXP](EXP)
+
+### F
+
+FIELD, FILEATTR, [FILES](FILES), FIX, [FOR...NEXT](FOR...NEXT), FRE, FREEFILE, [FUNCTION](FUNCTION)
+
+### G
+
+GET, GET#, [GOSUB](GOSUB), [GOTO](GOTO)
+
+### H
+
+[HEX$](HEX$)
+
+### I
+
+[IF...THEN](IF...THEN), [IMP](IMP), INKEY$, INP, [INPUT](INPUT), INPUT#, INPUT$, [INSTR](INSTR), [INT](INT), INTEGER, IOCTL, IOCTL$, IS
+
+### K
+
+KEY, KEY(n), [KILL](KILL)
+
+### L
+
+LBOUND, [LCASE$](LCASE$), [LEFT$](LEFT$), [LEN](LEN), [LET](LET), LINE, LINE INPUT, LINE INPUT#, LOC, LOCATE, LOCK, LOF, [LOG](LOG), LONG, LOOP, LPOS, LPRINT, LPRINT USING, LSET, LTRIM$
+
+### M
+
+[MID$](MID$), [MID$ (Statement)](MID$-Statement), MKD$, [MKDIR](MKDIR), MKDMBF$, MKI$, MKL$, MKS$, MKSMBF$, [MOD](MOD)
+
+### N
+
+[NAME](NAME), [NEXT](NEXT), [NOT](NOT)
+
+### O
+
+[OCT$](OCT$), OFF, ON, ON COM(n), ON ERROR GOTO, ON KEY(n), ON PEN, ON PLAY(n), ON STRIG(n), ON TIMER(n), ON...GOSUB, ON...GOTO, [OPEN], OPEN "COM(n), [OPTION BASE](OPTION-BASE), [OR](OR), OUT, OUTPUT
+
+### P
+
+[PRINT](PRINT)
+
+PAINT, PALETTE, PALETTE USING, PCOPY, PEEK, PEN, PLAY, PLAY(n), PMAP, POINT, POKE, POS, PRESET, [PRINT](PRINT), PRINT USING, PRINT#, PRINT# USING, PSET, PUT, PUT#
+
+### R
+
+RANDOM, RANDOMIZE, READ, REDIM, [REM](REM), RESET, RESTORE, RESUME, [RETURN](RETURN), [RIGHT$](RIGHT$), [RMDIR](RMDIR), [RND](RND), RSET, RTRIM$, [RUN](RUN)
+
+### S
+
+SCREEN, SCREEN Function, SEEK, SEEK (Statement), SELECT, [SGN](SGN), SHARED, SHELL, [SIN](SIN), SINGLE, SLEEP, SOUND, [SPACE$](SPACE$), [SPC](SPC), [SQR](SQR), STATIC, [STEP](STEP), STICK, [STOP](STOP), [STR$](STR$), STRIG, STRIG(n), STRING, [STRING$](STRING$), SUB, SWAP, [SYSTEM](SYSTEM)
+
+### T
+
+[TAB](TAB), [TAN](TAN), [THEN](THEN), TIME$, TIMER, [TO](TO), TRON, TROFF, TYPE
+
+### U
+
+UBOUND, [UCASE$](UCASE$), UNLOCK, UNTIL, USING
+
+### V
+
+[VAL](VAL), VARPTR, VARPTR$, VARSEG, VIEW, VIEW PRINT
+
+### W
+
+WAIT, [WHILE...WEND](WHILE...WEND), WIDTH, WINDOW, WRITE
+
+### X
+
+[XOR](XOR)
