@@ -6,12 +6,12 @@ Future updates for planned releases will be maintained here as the project progr
 
 The following has been implemented (to one degree or another):
 
-- [X] allow *line numbers*
-- [X] support *labels*
-- [X] case-insensitive
-- [X] [LET](LET) is optional; however, variable types are currently *inferred* based on initial expression type (determined)
-- [X] `+ - * / \ ^ () = < > >= <= <>`
-- [X] Operator Precedence ([IMP](IMP), [EQV](EQV), [XOR](XOR), [OR](OR), [AND](AND), [NOT](NOT), `= > >= < <= <>`, `+ - binary`, [MOD](MOD), `\`, `* /`, `+ - unary`, `^`)
+- allow *line numbers*
+- support *labels*
+- case-insensitive
+- [LET](LET) is optional; however, variable types are currently *inferred* based on initial expression type (determined)
+- `+ - * / \ ^ () = < > >= <= <>`
+- Operator Precedence ([IMP](IMP), [EQV](EQV), [XOR](XOR), [OR](OR), [AND](AND), [NOT](NOT), `= > >= < <= <>`, `+ - binary`, [MOD](MOD), `\`, `* /`, `+ - unary`, `^`)
 
 While the following still needs to be implemented:
 
