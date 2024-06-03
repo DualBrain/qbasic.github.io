@@ -31,7 +31,7 @@ The keywords below have been implemented if presented as a link to the documenta
 
 ### Decisions and Operators
 
-[AND](AND), + (Concatenation), [EQV](EQV), [IF](IF), [IMP](IMP), [MOD](MOD), [NOT](NOT), [OR](OR), SELECT CASE, [XOR](XOR)
+[AND](AND), [EQV](EQV), [IF](IF), [IMP](IMP), [MOD](MOD), [NOT](NOT), [OR](OR), SELECT CASE, [XOR](XOR)
 
 ### Procedures
 
