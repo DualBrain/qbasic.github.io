@@ -1,14 +1,37 @@
 # SCREEN
 
-To set the specifications for the display screen.
+Defines the screen characteristics.
 
 ## Syntax
 
-`SCREEN [mode] [,[colorswitch]][,[apage]][,[vpage]]`
+`SCREEN` [ *screen_mode*] [, [ *coloroff*] [, [ *active_page*] [, *visual_page*]]]
 
 ## Comments
 
-The `SCREEN` statement is chiefly used to select a screen mode appropriate for a particular display-hardware configuration. Supported hardware configurations and screen modes are described below.
+*screen_mode* is an integer expression that specifies the mode of operation:
+
+| Value | Mode | Adapter |
+| --- | --- | --- |
+| 0 | Text | CGA, EGA, VGA, MCGA |
+| 1 | 320 x 200 graphics | CGA, EGA, VGA, MCGA |
+| 2 | 640 x 200 graphics | EGA, VGA |
+| 3 | 720 x 348 graphics | Hercules* |
+| 4 | 640 x 400 graphics | Olivetti, AT&T 6300 |
+| 7 | 320 x 200 graphics | EGA, VGA |
+| 8 | 640 x 200 graphics | EGA, VGA |
+| 9 | 640 x 350 graphics | EGA, VGA |
+| 10 | 640 x 350 graphics | EGA, VGA |
+| 11 | 640 x 480 graphics | VGA, MCGA |
+| 12 | 640 x 480 graphics | VGA |
+| 13 | 320 x 200 graphics | VGA, MCGA |
+
+*The Hercules driver MSHERC.COM must be loaded.*
+
+*coloroff* is a numeric expression. When true, it disables color on composite monitors. (Ignored in screen modes 2 and up.)
+
+*active_page* is the video display page to which text output and graphics commands write.
+
+*visual_page* is the video display page that appears on your screen.
 
 ### MDPA with Monochrome Display: Mode 0
 
@@ -40,68 +63,66 @@ The IBM Monochrome Display can be used to display monochrome graphics at a very 
 
 ### Arguments
 
-The *mode* argument is an integer expression with legal values 0, 1, 2, 7, 8, 9, and 10. All other values are illegal. Selection of a mode argument depends primarily on your program's anticipated display hardware, as described above.
-
 Each of the `SCREEN` modes is described individually in the following paragraphs.
 
 `SCREEN 0`
 
-* Text mode only
-* Either 40 × 25 or 80 × 25 text format with character-box size of 8 × 8 (8 × 14 with EGA)
-* Assignment of 16 colors to any of 2 attributes
-* Assignment of 16 colors to any of 16 attributes (with EGA)
+- Text mode only
+- Either 40 × 25 or 80 × 25 text format with character-box size of 8 × 8 (8 × 14 with EGA)
+- Assignment of 16 colors to any of 2 attributes
+- Assignment of 16 colors to any of 16 attributes (with EGA)
 
 `SCREEN 1`
 
-* 320 × 200 pixel medium-resolution graphics
-* 80 × 25 text format with character-box size of 8 × 8
-* Assignment of 16 colors to any of 4 attributes
-* Supports both EGA and CGA
-* 2 bits per pixel
+- 320 × 200 pixel medium-resolution graphics
+- 80 × 25 text format with character-box size of 8 × 8
+- Assignment of 16 colors to any of 4 attributes
+- Supports both EGA and CGA
+- 2 bits per pixel
 
 `SCREEN 2`
 
-* 640 × 200 pixel high-resolution graphics
-* 40 × 25 text format with character-box size of 8 × 8
-* Assignment of 16 colors to any of 2 attributes
-* Supports both EGA and CGA
-* 1 bit per pixel
+- 640 × 200 pixel high-resolution graphics
+- 40 × 25 text format with character-box size of 8 × 8
+- Assignment of 16 colors to any of 2 attributes
+- Supports both EGA and CGA
+- 1 bit per pixel
 
 `SCREEN 7`
 
-* 320 × 200 pixel medium-resolution graphics
-* 40 × 25 text format with character-box size of 8 × 8
-* 2, 4, or 8 memory pages with 64K, 128K, or 256K of memory, respectively, installed on the EGA
-* Assignment of any of 16 colors to 16 attributes
-* EGA required
-* 4 bit per pixel
+- 320 × 200 pixel medium-resolution graphics
+- 40 × 25 text format with character-box size of 8 × 8
+- 2, 4, or 8 memory pages with 64K, 128K, or 256K of memory, respectively, installed on the EGA
+- Assignment of any of 16 colors to 16 attributes
+- EGA required
+- 4 bit per pixel
 
 `SCREEN 8`
 
-* 640 × 200 pixel high-resolution graphics
-* 80 × 25 text format with character-box size of 8 × 8
-* 1, 2, or 4 memory pages with 64K, 128K, or 256K of memory, respectively, installed on the EGA
-* Assignment of any of 16 colors to 16 attributes
-* EGA required
-* 4 bits per pixel
+- 640 × 200 pixel high-resolution graphics
+- 80 × 25 text format with character-box size of 8 × 8
+- 1, 2, or 4 memory pages with 64K, 128K, or 256K of memory, respectively, installed on the EGA
+- Assignment of any of 16 colors to 16 attributes
+- EGA required
+- 4 bits per pixel
 
 `SCREEN 9`
 
-* 640 × 350 pixel enhanced-resolution graphics
-* 80 × 25 text format with character-box size of 8 × 14
-* Assignment of either 64 colors to 16 attributes (more than 64K of EGA memory), or 16 colors to 4 attributes (64K of EGA memory)
-* Two display pages if 256K of EGA memory installed
-* EGA required
-* 2 bits per pixel (64K EGA memory) 4 bits per pixel (more than 64K EGA memory)
+- 640 × 350 pixel enhanced-resolution graphics
+- 80 × 25 text format with character-box size of 8 × 14
+- Assignment of either 64 colors to 16 attributes (more than 64K of EGA memory), or 16 colors to 4 attributes (64K of EGA memory)
+- Two display pages if 256K of EGA memory installed
+- EGA required
+- 2 bits per pixel (64K EGA memory) 4 bits per pixel (more than 64K EGA memory)
 
 `SCREEN 10`
 
-* 640 × 350 enhanced-resolution graphics
-* 80 × 25 text format with character-box size of 8 × 14
-* Two display pages if 256K of EGA memory installed
-* Assignment of up to 9 pseudo-colors to 4 attributes
-* EGA required
-* 2 bits per pixel
+- 640 × 350 enhanced-resolution graphics
+- 80 × 25 text format with character-box size of 8 × 14
+- Two display pages if 256K of EGA memory installed
+- Assignment of up to 9 pseudo-colors to 4 attributes
+- EGA required
+- 2 bits per pixel
 
 The following are default attributes for `SCREEN 10`, monochrome display:
 
@@ -169,8 +190,8 @@ The number of pages available depends on the SCREEN mode and the amount of avail
 | 10   | 640×350        | 0-3             | 0-8         | 128K       | 1     | 128K      |
 |      |                |                 |             | 256K       | 2     |           |
 
-* <sup>a</sup> Numbers in the range 16-31 are blinking versions of the colors 0-15.
-* <sup>b</sup> Attributes applicable only with EGA.
+- <sup>a</sup> Numbers in the range 16-31 are blinking versions of the colors 0-15.
+- <sup>b</sup> Attributes applicable only with EGA.
 
 ### Attributes and Colors
 
@@ -200,9 +221,9 @@ Default Attributes and Colors for Most Screen Modes
 |     |   | 14        | 14      | Yellow               | 2       | High intensity              |
 | 3   | 1 | 15        | 15      | High-intensity White | 0       | Off                         |
 
-* <sup>a</sup> Off when used for background.
-* <sup>b</sup> With EGA memory > 64K.
-* <sup>c</sup> Only for mode 0 monochrome.
+- <sup>a</sup> Off when used for background.
+- <sup>b</sup> With EGA memory > 64K.
+- <sup>c</sup> Only for mode 0 monochrome.
 
 The default foreground colors for the various modes are given in the following table:
 
@@ -221,6 +242,17 @@ Default Foreground Colors
 | 9          | 3<sup>b</sup>                      | NA                 | 63                      | NA |
 | 10         | NA                      | 3                  | NA                      | 8 |
 
-* <sup>a</sup> IBM Enhanced Color Display
-* <sup>b</sup> 15 if greater than 64K of EGA memory
-* NA=Not Applicable
+- <sup>a</sup> IBM Enhanced Color Display
+- <sup>b</sup> 15 if greater than 64K of EGA memory
+- NA=Not Applicable
+
+## Example
+
+```vb
+SCREEN 1     ' 320x200 graphics
+LINE (10, 10)-(20, 20), , B
+```
+
+## See Also
+
+- [CIRCLE](CIRCLE), [COLOR](COLOR), [DRAW](DRAW), [GET](GET), [LINE](LINE), [PAINT](PAINT), [POINT](POINT), [PALETTE](PALETTE), [PALETTE USING](PALETTE-USING), [PRESET](PRESET), [PSET](PSET), [PUT](PUT), [VIEW](VIEW), [WINDOW](WINDOW)

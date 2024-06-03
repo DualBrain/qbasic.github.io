@@ -6,15 +6,15 @@ To set or retrieve the current time.
 
 As a statement:
 
-`TIME$ = string exp`
+`TIME$` = *string_expression*
 
 As a variable:
 
-`string exp=TIME$`
+`TIME$`
 
 ## Comments
 
-*string exp* is a valid string literal or variable that lets you set hours (*hh*), hours and minutes (*hh:mm*), or hours, minutes, and seconds (*hh:mm:ss*).
+*string_expression* is a valid string literal or variable that lets you set hours (*hh*), hours and minutes (*hh:mm*), or hours, minutes, and seconds (*hh:mm:ss*).
 
 *hh* sets the hour (0-23). Minutes and seconds default to 00.
 
@@ -22,7 +22,7 @@ As a variable:
 
 *hh:mm:ss* sets the hour, minutes, and seconds (0-59).
 
-If *string exp* is not a valid string, a "Type mismatch" error results.
+If *string_expression* is not a valid string, a "Type mismatch" error results.
 
 As you enter any of the above values, you may omit the leading zero, if any. You must, however, enter at least one digit. If you wanted to set the time as a half hour after midnight, you could enter `TIME$= "0:30"`, but not `TIME$= ":30"`.
 
@@ -50,15 +50,19 @@ PRINT TIME$
 The following program displays the current date and time on the 25th line of the screen and will sound on the minute and half minute.
 
 ```vb
-10 KEY OFF: SCREEN 0: WIDTH 80: CLS
-20 LOCATE 25, 5
-30 PRINT DATE$, TIME$;
-40 SEC=VAL(MID$(TIME$, 7, 2))
-50 IF SEC=SSEC THEN 20 ELSE SSEC=SEC
-60 IF SEC=0 THEN 1010
-70 IF SEC=30 THEN 1020
-80 IF SEC<57 THEN 20
-1000 SOUND 1000, 2: GOTO 20
-1010 SOUND 2000, 8: GOTO 20
-1020 SOUND 400, 4: GOTO 20
+SCREEN 0: WIDTH 80: CLS
+
+Again:
+  LOCATE 25, 5
+  PRINT DATE$, TIME$;
+  SEC=VAL(MID$(TIME$, 7, 2))
+  IF SEC=SSEC THEN 20 ELSE SSEC=SEC
+  IF SEC=0 THEN SOUND 2000, 8: GOTO Again
+  IF SEC=30 THEN SOUND 400, 4: GOTO Again
+  IF SEC<57 THEN GOTO Again
+  SOUND 1000, 2: GOTO Again
 ```
+
+## See Also
+
+- [DATE$](DATE$)

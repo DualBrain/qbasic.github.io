@@ -4,21 +4,25 @@ Returns the highest array subscript for the specified array dimension.
 
 ## Syntax
 
-`v=UBOUND(array[,n])`
+v=`UBOUND`(*array_name*[, *dimension*])
 
 ## Comments
 
-*array* is the variable name of the array.
+*array_name* is the variable name of the array.
 
-*n* is an integer value specifying the dimension in a multidimensional array. The default value is 1.
+*dimension* is an integer value specifying the dimension in a multidimensional array. The default value is 1.
 
 ## Example
 
 ```vb
-05 DIM a(1 TO 10, 1 TO 20, 1 TO 30)
-10 PRINT UBOUND(a), UBOUND(a, 2), UBOUND(a, 3)
+DIM a(1 TO 5, 1 TO 10, 1 TO 25)
+PRINT UBOUND(a), UBOUND(a, 2), UBOUND(a, 3)
 ```
 
 ```text
-10 20 30
+5    10    25
 ```
+
+## See Also
+
+- [DIM](DIM), [LBOUND](LBOUND), [OPTION BASE](OPTION-BASE), [REDIM](REDIM)

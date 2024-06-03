@@ -1,34 +1,24 @@
 # VARPTR$
 
-To return a character form of the offset of a variable in memory.
+Returns a string representation of a variable's offset for use in the [PLAY](PLAY) and [DRAW](DRAW) statements.
 
 ## Syntax
 
-`VARPTR$(variable)`
+`VARPTR$`(*string_variable*)
 
 ## Comments
 
-*variable* is the name of a variable that exists in the program.
+*string_variable* is a string variable containing [DRAW](DRAW) or [PLAY](PLAY) commands.
 
-> Assign all simple variables before calling `VARPTR$` for an array element, because the array addresses change when a new simple variable is assigned.
-
-`VARPTR$` returns a three-byte string of the following form:
-
-`| Byte 0 | Byte 1 | Byte 2 |`
-
-Byte 0 contains one of the following variable types:
-
-* 2 integer
-* 3 string
-* 4 single-precision
-* 8 double precision
-
-Byte 1 contains the 8086 address format, and is the least significant byte.
-
-Byte 2 contains the 8086 address format, and is the most significant byte.
+QBasic does not guarantee that a variable will reside in the same memory location throughout the program execution. Use `VARPTR$` immediately before any code that uses the address.
 
 ## Example
 
 ```vb
-100 X = USR(VARPTR$(Y))
+scale$ = "CDEFGAB
+PLAY "X" + VARPTR$(scale$)
 ```
+
+## See Also
+
+- [DRAW](DRAW), [PLAY](PLAY)

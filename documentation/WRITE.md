@@ -1,28 +1,34 @@
 # WRITE
 
-To output data to the screen.
+Writes data to the screen or a sequential file.
 
 ## Syntax
 
-`WRITE[list of expressions]`
+`WRITE` [[# ] *file_number*,] *expression_list*
 
 ## Comments
 
-If *list of expressions* is omitted, a blank line is output. If *list of expressions* is included, the values of the expressions are output at the terminal. The expressions in the list may be numeric and/or string expressions, and must be separated by commas or semicolons.
+*file_number* is the file number assigned to the file in its [OPEN](OPEN) statement. If you omit *file_number*, QBasic writes the data to the screen.
 
-When printed items are output, each item will be separated from the last by a comma. Printed strings are delimited by double quotation marks. After the last item in the list is printed, BASIC inserts a carriage return/line feed.
+*expression_list* is a list of one or more variables or expressions separated by commas.
 
-The difference between `WRITE` and [PRINT](PRINT) is that `WRITE` inserts commas between displayed items and delimits strings with double quotation marks. Positive numbers are not preceded by blank spaces.
-
-`WRITE` outputs numeric values using the same format as the [PRINT](PRINT) statement.
+`WRITE` places a comma between each expression in the file; the [PRINT](PRINT) statement does not.
 
 ## Example
 
 ```vb
-10 A=80: B=90: C$="THAT'S ALL"
-20 WRITE A, B, C$
+OPEN "TEST.DAT" FOR OUTPUT AS #1
+WRITE #1, "TEST", 5, 3.21, "END"
+CLOSE #1
+
 ```
 
+The resulting text file will contain.
+
 ```text
- 80, 90, "THAT'S ALL"
+"TEST",5,3.21,"END"
 ```
+
+## See Also
+
+- [PRINT](PRINT)

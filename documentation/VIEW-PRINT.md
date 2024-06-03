@@ -1,17 +1,27 @@
 # VIEW PRINT
 
-To set the boundaries of the screen text window.
+Defines the text mode scrolling region.
 
 ## Syntax
 
-`VIEW PRINT [topline TO bottomline]`
+`VIEW PRINT` [*top_row* `TO` *bottom_row* ]
 
 ## Comments
 
-`VIEW PRINT` without topline and bottomline parameters initializes the whole screen area as the text window. The whole screen area consists of lines 1 to 24; by default, line 25 is not used.
+*top_row* and *bottom_row* are integer values that specify the top and bottom rows of the text mode scrolling region.
 
-Statements and functions that operate within the defined text window include [CLS](CLS), [LOCATE](LOCATE), [PRINT](PRINT), and [SCREEN](SCREEN).
+IF you omit all arguments, `VIEW PRINT` sets the scrolling region to the entire screen.
 
-The screen editor will limit functions such as scroll and cursor movement to the text window.
+## Example
 
-For more information, see [VIEW](VIEW).
+```vb
+CLS
+VIEW PRINT 5 TO 10
+FOR i = 1 TO 100
+  PRINT i, i, i, i
+NEXT i
+```
+
+## See Also
+
+- [CLS](CLS), [LOCATE](LOCATE), [PRINT](PRINT)

@@ -1,35 +1,25 @@
 # SCREEN (Function)
 
-To return the ASCII code (0-255) for the character at the specified row (line) and column on the screen.
+Returns the character or the color attribute for the character at the specified row and column.
 
 ## Syntax
 
-``x=SCREEN(row,col[,z])``
+x=`SCREEN`(*row*,*column*[, *get_color*])
 
 ## Comments
 
-*x* is a numeric variable receiving the ASCII code returned.
+*row* and *column* are the coordinates of the character.
 
-*row* is a valid numeric expression within the range 1 to 25.
-
-*col* is a valid numeric expression 1 to 40, or 1 to 80, depending upon screen width setting. See the [WIDTH](WIDTH) statement.
-
-*z* is a valid numeric expression with a true or false value. It may be used only in alpha mode.
-
-The ordinal of the character at the specified coordinates is stored in the numeric variable. In alpha mode, if the optional parameter *z* is given and is true (nonzero), the color attribute for the character is returned instead of the ASCII code for the character (see the [COLOR](COLOR) statement).
-
-Any values entered outside of the range indicated result in an "Illegal function call" error. Row 25 may be referenced only if the function key is off.
+*get_color* is a numeric expression. If *get_color* is 1, `SCREEN` returns the color of the character. If *get_color* is 0 or is omitted, `SCREEN` returns the ASCII value of the character at the specified position.
 
 ## Examples
 
 ```vb
-100 X=SCREEN (10, 10)
+DIM scr(1 TO 25, 1 TO 80) AS INTEGER
+'Store current screen contents
+FOR row = 1 TO 25
+  FOR column = 1 TO 80
+    scr(row, column) = SCREEN(row, column)
+  NEXT column
+NEXT row
 ```
-
-If the character at 10,10 is A, then X is 65.
-
-```vb
-110 X=SCREEN (1, 1, 1)
-```
-
-Returns the color attribute of the character in the upper-left corner of the screen.

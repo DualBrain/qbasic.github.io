@@ -1,25 +1,31 @@
 # VAL
 
-Returns the numerical value of string *x$*.
+Converts a string representation of a numeric value to the actual numeric value.
 
 ## Syntax
 
-`VAL(x$)`
+`VAL`(*string_expression*)
 
 ## Comments
 
-The `VAL` function also strips leading blanks, tabs, and line feeds from the argument string. For example, the following line returns `-3`:
+*string_expression* is the string representation of a numeric value.
 
-`VAL(" -3")`
-
-The [STR$](STR$) function (for numeric to string conversion) is the complement to the `VAL(x$)` function.
-
-If the first character of *x$* is not numeric, the `VAL(x$)` will return zero.
+`VAL` stops at the first character it cannot recognize as part of a number. Valid characters are 0 through 9, the period (.), the minus sign (-) and the plus sign (+).
 
 ## Example
 
 ```vb
-10 READ NAME$, CITY$, STATE$, ZIP$
-20 IF VAL(ZIP$)<90000 OR VAL(ZIP$)>96699 THEN PRINT NAME$ TAB(25) "OUT OF STATE"
-30 IF VAL(ZIP$)>=90801 AND VAL(ZIP$)<=90815 THEN PRINT NAME$ TAB(25) "LONG BEACH"
+PRINT VAL("33.44")
+PRINT VAL("88k")
 ```
+
+Results in:
+
+```txt
+ 33.44
+ 88
+```
+
+## See Also
+
+- [STR$](STR$)

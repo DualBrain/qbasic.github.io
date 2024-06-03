@@ -1,28 +1,28 @@
 # STRING$
 
-To return a string of length *n* whose characters all have ASCII code *j*, or the first character of *x$*
+Returns a string containing the specified number of occurences of a character.
 
 ## Syntax
 
-`STRING$(n,j)`
+`STRING$`(*num_char*,*ascii_character*)
 
-`STRING$(n,x$)`
+`STRING$`(*num_char*,*string_expression*)
 
 ## Comments
 
-`STRING$` is also useful for printing top and bottom borders on the screen or the printer.
+*num_char* is the desired number of occurrences of a character.
 
-*n* and *j* are integer expressions in the range `0` to `255`.
+*ascii_character* is the ASCII code of the character.
+
+*string_expression* is any string expression. If you provide a string, `STRING$` uses the first character of the string.
 
 ## Example
 
 ```vb
-10 X$ = STRING$(10, 45)
-20 PRINT X$ "MONTHLY REPORT" X$
+X$ = STRING$(10, 45)
+PRINT X$ "MONTHLY REPORT" X$
 ```
 
 ```text
 ----------MONTHLY REPORT----------
 ```
-
-`45` is the decimal equivalent of the ASCII symbol for the minus (`-`) sign.

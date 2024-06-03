@@ -1,25 +1,34 @@
 # SIN
 
-To calculate the trigonometric sine of *x*, in radians.
+Returns the sine of the specified angle.
 
 ## Syntax
 
-`SIN(x)`
+`SIN`(*angle*)
 
 ## Comments
 
-`SIN(x)` is calculated in single-precision.
+*angle* is a numeric expression that specifies an angle in radians.
 
-To obtain `SIN(x)` when *x* is in degrees, use `SIN(x*π/180)`.
+You can express angles in radians or degrees. The QBasic trigonometric routines support only radians. To convert from degrees to radians, use the following equation:
+
+*radians* = 3.141593 * (*degrees*/180)
 
 ## Example
 
 ```vb
-PRINT SIN(1.5)
+pi = 3.141593
+PRINT "Sine of pi", SIN(pi)
+PRINT "Sine of pi/2", SIN(pi / 2)
 ```
+
+Results in:
 
 ```text
- .9974951
+Sine of pi      -3.258414E-07
+Sine of pi/2    1
 ```
 
-The sine of `1.5` radians is `.9974951` (single-precision).
+## See Also
+
+- [ATN](ATN), [COS](COS), [TAN](TAN)

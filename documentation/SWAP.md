@@ -1,14 +1,14 @@
 # SWAP
 
-To exchange the values of two variables.
+Exchanges the value of two variables.
 
 ## Syntax
 
-`SWAP variable1,variable2`
+`SWAP` *variable1*,*variable2*
 
 ## Comments
 
-Any type variable may be swapped (integer, single-precision, double-precision, string), but the two variables must be of the same type or a `Type mismatch` error results.
+*variable1* and *variable2* must be the same type.
 
 ## Example
 

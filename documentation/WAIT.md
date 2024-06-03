@@ -1,35 +1,23 @@
 # WAIT
 
-To suspend program execution while monitoring the status of a machine input port.
+Suspends program execution until the specified bit pattern is read from an input port.
 
 ## Syntax
 
-`WAIT port number, n[,j]`
+`WAIT` *port_number*, *AND_expression*[ , *XOR_expression*]
 
 ## Comments
 
-*port number* represents a valid machine port number within the range of 0 to 65535.
+*port_number* is an integer expression (from 0 through 255) that identifies the port.
 
-*n* and *j* are integer expressions in the range of 0 to 255.
+*AND_expression* is an integer expression that `WAIT` combines with the port value using an [AND](AND) operation.
 
-The `WAIT` statement causes execution to be suspended until a specified machine input port develops a specified bit pattern.
+*XOR_expression* is an integer expression that `WAIT` combines with the port value using an [XOR](XOR) operation.
 
-The data read at the port is [XOR](XOR)ed with the integer expression *j*, and then [AND](AND)ed with *n*.
-
-If the result is zero, BASIC loops back and reads the data at the port again.
-
-If the result is nonzero, execution continues with the next statement.
-
-When executed, the `WAIT` statement tests the byte *n* for set bits. If any of the bits is set, then the program continues with the next statement in the program. `WAIT` does not wait for an entire pattern of bits to appear, but only for one of them to occur.
-
-It is possible to enter an infinite loop with the `WAIT` statement. You can exit the loop by pressing CTRL-BREAK, or by resetting the system.
-
-If *j* is omitted, zero is assumed.
+Data from the specified port is first combined with *XOR_expression* if supplied. The result is then combined with *AND_expression*. If the result is zero, `WAIT` continues reading port values; otherwise, QBasic executes the next statement.
 
 ## Example
 
 ```vb
-100 WAIT 32,2
+WAIT 45, 64
 ```
-
-Suspends machine operation until port 32 receives 2 as input.

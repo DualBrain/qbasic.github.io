@@ -1,16 +1,14 @@
 # SPC
 
-To skip a specified number of spaces in a [PRINT](PRINT) or an [LPRINT](PRINT) statement.
+Skips the specified number of spaces in a [PRINT](PRINT) or [LPRINT](PRINT) statement.
 
 ## Syntax
 
-`SPC(n)`
+`SPC`(*num_spaces*)
 
 ## Comments
 
-*n* must be within the range of 0 to 255.
-
-If *n* is greater than the defined width of the printer or the screen, the value used will be *n* [MOD](MOD) width.
+*num_spaces* is an integer value (from 0 through 32,767).
 
 A semicolon is assumed to follow the `SPC(n)` command.
 
@@ -19,9 +17,11 @@ A semicolon is assumed to follow the `SPC(n)` command.
 ## Example
 
 ```vb
-PRINT "OVER" SPC(15) "THERE"
+FOR i = 0 TO 5
+  PRINT SPC(i); i
+NEXT
 ```
 
-```text
- OVER               THERE
-```
+## See Also
+
+- [SPACE$](SPACE$), [TAB](TAB)

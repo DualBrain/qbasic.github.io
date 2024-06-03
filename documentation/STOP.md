@@ -1,6 +1,6 @@
 # STOP
 
-To terminate program execution and return to command level.
+Ends the program at any point.
 
 ## Syntax
 
@@ -8,29 +8,13 @@ To terminate program execution and return to command level.
 
 ## Comments
 
-`STOP` statements may be used anywhere in a program to terminate execution. When a `STOP` is encountered, the following message is printed:
-
-`Break in line nnnnn`
-
-Unlike the [END](END) statement, the `STOP` statement does not close files.
-
-BASIC always returns to command level after a `STOP` is executed. Execution is resumed by issuing a [CONT](CONT) command.
+A program should only have one starting and ending point. The use of `STOP` to end a program from different locations is strongly discouraged.
 
 ## Example
 
 ```vb
-10 INPUT A, B, C
-20 K=A^2*5.3: L=B^3/.26
-30 STOP
-40 M=C*K+100: PRINT M
-```
-
-```text
-RUN
- ? 1, 2, 3
-BREAK IN 30
-PRINT L
- 30.76923
-CONT
- 115.9
+Handler:
+  PRINT "Failed to open file on"
+  PRINT "the third attempt"
+  STOP
 ```

@@ -1,43 +1,35 @@
 # VIEW
 
-To define a physical viewport limit from *x1,y1* (upper-left x,y coordinates) to *x2,y2* (lower-right x,y coordinates).
+Defines the screen coordinates within which graphics can be displayed.
 
 ## Syntax
 
-`VIEW [[SCREEN][(x1,y1)-(x2,y2) [,[fill][,[border]]]]`
+`VIEW` [ [`SCREEN` ] (*x1*,*y1*)-(*x2*,*y2*) [, [ *fill_color*] [, *border_present*]]]
 
 ## Comments
 
-[RUN](RUN) or `VIEW` with no arguments define the entire screen as the viewport.
+`VIEW` allows you to restrict graphics output to specific coordinates on the screen. Coordinates outside this range are not drawn.
 
-*(x1,y1)* are the upper-left coordinates.
+The keyword [SCREEN](SCREEN) states that graphics coordinates are relative to the screen, not to the viewport.
 
-*(x2,y2)* are the lower-right coordinates.
+*xl* and *yl* are the coordinates of one comer of the viewport; *x2* and *y2* are the coordinates of the opposite comer.
 
-The *fill* attribute lets you fill the view area with color.
+*fill_color* specifies the color with which to fill the viewport.
 
-The *border* attribute lets you draw a line surrounding the viewport if space for a border is available. If *border* is omitted, no border is drawn.
+*border_present* is any numeric expression that, when present, directs `VIEW` to draw a border around the viewport.
 
-The *x* and *y* coordinates must be within the physical bounds of the screen and define the rectangle within the screen that graphics map into. The *x* and *y* coordinate pairs will be sorted, with the smallest values placed first.
+If you omit all arguments, `VIEW` sets the viewport to the entire screen.
 
-Points are plotted relative to the viewpoint if the screen argument is omitted; that is, *x1* and *y1* are added to the *x* and *y* coordinates before the point is plotted.
+The [SCREEN](SCREEN) and [RUN](RUN) statements set the viewport back to the entire screen.
 
-It is possible to have a varied number of pairs of *x* and *y*. The only restriction is that *x1* cannot equal *x2*, and *y1* cannot equal *y2*.
-
-Points are plotted absolutely if the [SCREEN](SCREEN) argument is present. Only points within the current viewpoint will be plotted.
-
-When using `VIEW`, the [CLS](CLS) statement clears only the current viewport. To clear the entire screen, you must use `VIEW` to disable the viewports. Then use [CLS](CLS) to clear the screen. [CLS](CLS) does not move the cursor to home. Press CTRL-HOME to send the cursor home, and clear the screen.
-
-## Examples
-
-The following defines a viewport such that the statement [PSET](PSET)`(0,0),3` would set down a point at the physical screen location 10,10.
+## Example
 
 ```vb
-VIEW (10, 10)-(200, 100)
+SCREEN 1
+VIEW (0, 0)-(20, 20), 1, 2
+LINE (10, 10)-(100, 100)
 ```
 
-The following defines a viewport such that the point designated by the statement [PSET](PSET)`(0,0),3` would not appear because 0,0 is outside of the viewport. [PSET](PSET)`(10,10),3` would be within the viewport.
+## See Also
 
-```vb
-VIEW SCREEN (10, 10)-(200, 100)
-```
+- [CLS](CLS), [SCREEN](SCREEN), [WINDOW](WINDOW)

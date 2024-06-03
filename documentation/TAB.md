@@ -1,33 +1,23 @@
 # TAB
 
-Spaces to position n on the screen.
+Moves the print position to the specified column.
 
 ## Syntax
 
-`TAB(n)`
+`TAB`(*column*)
 
 ## Comments
 
-If the current print position is already beyond space *n*, `TAB` goes to that position on the next line.
+*column* is the desired tab column. If the current position is beyond the specified column, `TAB` moves to the column on the next line.
 
-Space 1 is the leftmost position. The rightmost position is the screen width.
-
-*n* must be within the range of 1 to 255.
-
-If the `TAB` function is at the end of a list of data items, BASIC will not return the cursor to the next line. It is as though the `TAB` function has an implied semicolon after it.
-
-`TAB` may be used only in [PRINT](PRINT), [LPRINT](LPRINT), or [PRINT#](PRINT-FILE) statements (see the [SPC](SPC) function).
-
-## Examples
+## Example
 
 ```vb
-10 PRINT "NAME" TAB(25) "AMOUNT": PRINT
-20 READ A$,B$
-30 PRINT A$ TAB(25) B$
-40 DATA "G. T. JONES","$25.00"
+FOR i = 1 TO 10
+  PRINT TAB(i); i
+NEXT i
 ```
 
-```text
- NAME           AMOUNT
- G. T. JONES    $25.00
-```
+## See Also
+
+- [SPC](SPC)

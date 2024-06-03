@@ -1,34 +1,37 @@
-# STRIG(n)
+# STRIG(n) Statements
 
-To allow the use of a joystick by enabling or disabling the trapping of its buttons.
+Enable or disable joystick trapping.
 
 ## Syntax
 
-`STRIG(n) ON`
+`STRIG`(*button*) `ON`
 
-`STRIG(n) OFF`
+`STRIG`(*button*) `OFF`
 
-`STRIG(n) STOP`
+`STRIG`(*button*) `STOP`
 
 ## Comments
 
-*n* is 0, 2, 4, or 6, corresponding to the buttons on the joystick, where:
+*button* is a numeric expression that specifies which joystick button to trap:
 
 * 0 is button A1
 * 2 is button B1
 * 4 is button A2
 * 6 is button B2
 
+`STRIG`(*button*) `ON` enables joystick trapping for the specified button.
+
+`STRIG`(*button*) `OFF` disables joystick trapping fo the specified button. All events are ignored.
+
+`STRIG`(*button*) `STOP` temporarily disables joystick trapping for the specified button. Events are processed once trapping is enabled.
+
 ## Example
 
-`STRIG(n) ON`
+```vb
+ON STRIG(0) GOSUB Handler
+STRIG(0) ON
+```
 
-Enables trapping of the joystick buttons. After this statement is executed, BASIC checks to see if this button has been pressed before executing following statements.
+## See Also
 
-`STRIG(n) OFF`
-
-Disables BASIC from checking the state of the button.
-
-`STRIG(n) STOP`
-
-Disables trapping of a given button through the [ON STRIG(n)](ON-STRIG(n)) statement. But, any pressings are remembered so that trapping may take place once it is reenabled.
+- [ON...GOSUB](ON...GOSUB), [STRIG](STRIG)

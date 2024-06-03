@@ -1,25 +1,25 @@
 # SPACE$
 
-To return a string of *x* spaces.
+Returns a string containing the specified number of spaces.
 
 ## Syntax
 
-``SPACE$(x)``
+`SPACE$`(*num_spaces*)
 
 ## Comments
 
-*x* is rounded to an integer and must be within the range of 0 to 255 (see [SPC](SPC) function).
+*num_spaces* is an integer expression (from 0 through 32,767).
 
 ## Example
 
 ```vb
-10 FOR N=1 TO 5
-20 X$=SPACE$(N)
-30 PRINT X$; N
-40 NEXT N
+FOR i = 0 TO 5
+  PRINT SPACE$(i); i
+NEXT i
 ```
 
 ```text
+0
  1
   2
    3
@@ -27,4 +27,6 @@ To return a string of *x* spaces.
      5
 ```
 
-Line 20 adds one space for each loop execution.
+## See Also
+
+- [SPC](SPC); [TAB](TAB)

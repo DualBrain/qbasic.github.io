@@ -1,31 +1,20 @@
 # SOUND
 
-To generate sound through the speaker.
+Generates a sound from the computer's speaker.
 
 ## Syntax
 
-`SOUND freq,duration`
+`SOUND` *frequency*,*duration*
 
 ## Comments
 
-*freq* is the desired frequency in Hertz (cycles per second). *freq* is a numeric expression within the range of 37 to 32767.
+*frequency* is an integer expression (from 37 through 32,767) that specifies the sound's frequency in hertz.
 
-*duration* is the desired duration in clock ticks. Clock ticks occur 18.2 times per second. *duration* must be a numeric expression within the range of 0 to 65535.
+*duration* is an unsigned integer expression (from 0 through 65,535) that specifies the length of the sound in clock ticks. A clock tick occurs 18.2 times per second.
 
 Values below .022 produce an infinite sound until the next `SOUND` or [PLAY](PLAY) statement is executed.
 
 If *duration* is zero, any active `SOUND` statement is turned off. If no `SOUND` statement is running, a duration of zero has no effect.
-
-The sound is executed in foreground or background depending on the [PLAY](PLAY) statement.
-
-## Examples
-
-The following example creates random sounds of short duration:
-
-```vb
-2500 SOUND RND*1000+37, 2
-2600 GOTO 2500
-```
 
 The following table shows the relationship of notes and their frequencies in the two octaves adjacent to middle C.
 
@@ -86,3 +75,16 @@ Tempos Requested by Clock Ticks
 |           | Veloce      |              |             |
 |           | Presto      | 168-208      | 6.5-5.25    |
 | very fast | Prestissimo |              |             |
+
+## Example
+
+```vb
+FOR i = 37 TO 3000
+  PRINT i
+  SOUND i, 1
+NEXT i
+```
+
+## See Also
+
+- [BEEP](BEEP), [PLAY](PLAY)

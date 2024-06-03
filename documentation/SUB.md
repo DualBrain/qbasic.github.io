@@ -4,17 +4,17 @@ Declares a BASIC subprogram.
 
 ## Syntax
 
-```vb
-SUB subprogram_name [(parameter_list)][STATIC]
+`SUB` *subprogram_name*[ (*parameter_list*)] [`STATIC` ]
   ...
-END SUB
-```
+`END SUB`
 
-## Notes
+## Comments
 
-- *subprogram_name* is the name of the subprogram (up to 40 characters).
-- *parameter_list* is a list of parameters in the following form: *variable*[()][ AS *typename][,*variable*[()][ AS *typename*]]...
-- the keyword [STATIC](STATIC) directs QBasic to retain the value of the subprogram's local variables between calls.
+*subprogram_name* is the name of the subprogram (up to 40 characters).
+
+*parameter_list* is a list of parameters in the following form: *variable*[() ] [AS *typename*] [, *variable*[() ] [ AS *typename*]]...
+
+The keyword [STATIC](STATIC) directs QBasic to retain the value of the subprogram's local variables between calls.
 
 ## Example
 
