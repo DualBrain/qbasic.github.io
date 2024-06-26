@@ -29,3 +29,5 @@ Which raises many additional questions such as:
 - And then what? What, if any, areas can be added/improved upon beyond what was in the original while still retaining the "just works" goal?
 
 Some of these questions are pretty easy to answer, while others are certainly in the *wait and see category*.
+
+In the mean time if you would like to utilize the original on your modern device, [see here](documentation/dosbox).
