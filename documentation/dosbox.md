@@ -11,6 +11,7 @@ A couple of options for where to find QBasic...
 - The original MS-DOS installation diskettes, version 5.0+.
 - It's also included on the original disc of the Windows 95 installation CD-ROM.
 - It may also be on later versions of Windows...
+- *At your risk*, you can also download from [WinWorld](https://winworldpc.com/product/qbasic/1x).
 
 To my knowledge the "last version" is the one available on the Windows 95 installation disc under the `OTHER\OLDMSDOS` folder.
 
