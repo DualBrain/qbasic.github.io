@@ -27,7 +27,7 @@ DIM asmroutine(1 TO 6) AS INTEGER
 DATA &H55           : ' PUSH BP
 DATA &H8B, &HEC     : ' MOV BP, SP
 DATA &HB4, 2        : ' MOV AH, 2
-DATA &H2, 65        : ' MOV DL, 65
+DATA &HB2, 65       : ' MOV DL, 65
 DATA &HCD, &H21     : ' INT 21H
 DATA &H5D           : ' POP BP
 DATA &HCB, 0        : ' RET
