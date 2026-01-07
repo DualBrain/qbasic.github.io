@@ -26,3 +26,5 @@ In the process of building QBasic, there will be decisions made that affect *pot
 
 - The [PRINT](PRINT) statement does not support back-to-back string literals due to QBasic's support for escaped quotation marks.
 - String literals must have both pairs of quotation marks to be considered a valid string literal.
+- Added support for the `PRESERVE` keyword / functionality for the [REDIM](REDIM) statement.
+

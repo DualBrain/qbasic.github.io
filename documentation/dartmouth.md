@@ -5,14 +5,14 @@
 At some point the different versions of Dartmouth BASIC was referred to as "The Sixth", "The Seventh", etc.  So for the purposes of this documentation
 will be referring to the original release as "The First".
 
-### Specs
+### Specs ("The First")
 
 - Line numbers required and must be unique/sequential; 1 to 99999.
 - Variables are floating point numeric only (no string variables).
 - Variables (except arrays) could be named A-Z and optionally contain a number (0-9).
 - Numeric values could only hold 9-digits of precision, with or without a decimal point. E-notation supported and referred to as "exponent of ten".
 - Math symbols supported: `+-*/^`
-- Supported parens in expressions.
+- Supported parenthesis in expressions.
 - Evaluators: `= <> > < >= <=`
 - Arrays are mentioned (and apparently discussed in "Part II"); however, I don't have the documentation for this so not sure of the details.
 - Arrays start at index 1 (note that this is modified in later editions).
@@ -22,7 +22,7 @@ will be referring to the original release as "The First".
 - [NEXT](NEXT) requires the variable.
 - [GOTO](GOTO) can optionally be written as `GO TO`.
 
-### Functions
+### Functions ("The First")
 
 - [SIN](SIN)
 - [COS](COS)
@@ -35,7 +35,7 @@ will be referring to the original release as "The First".
 - [RND](RND)
 - [INT](INT)
 
-### Keywords
+### Keywords ("The First")
 
 - [LET](LET)
 - [PRINT](PRINT)
@@ -47,7 +47,7 @@ will be referring to the original release as "The First".
 - [DATA](DATA)
 - [READ](READ)
 
-### Commands
+### Commands ("The First")
 
 - HELLO
 - {CATALOG|CAT}
@@ -63,24 +63,26 @@ will be referring to the original release as "The First".
 - SYSTEM {BASIC|ALGOL}
 - BYE
 
+It should be noted that most of the above *commands* aren't actually BASIC; but commands included as part of the DTSS. However because of how well these were two separate things worked with one another, users had no reason to treat them as separate software/contexts.
+
 ## "The Second" circa October 1964
 
-### Specs
+### Specs ("The Second")
 
-* Mention of minus sign for numbers.
-* Mention of operator precedence; `(), ^, */, +-` with the `*/+-` being done left to right.
-* Discusses *arrays* in the context of "Lists" (single-dimensional) and "Tables" (two-dimensional). They must be a single letter variable name. The dimensions are initialized automatically 0 to 10; the [DIM](DIM) statement allows increasing (or decreasing) the upperbound.
-* The [INT](INT) statement is mentioned in the May documentation, but the details are in the missing "Part II".  In this manual, it is clear that [INT](INT) is very different in this BASIC than in the Microsoft variants.
-  - "round numbers to the nearest whole integer", "operates by chopping off the fractional part"; which is different in newer BASIC's, which *truncates*.
-* [PRINT](PRINT) introduces the "packed form of output" using the semi-colon character.  Instead of moving a *full zone* using the comma (which is 6 or more characters *depending*), it will "move next multiple of 3 characters". It is also mentioned that the [SPC](SPC) and [TAB](TAB) will hold off the CR (like semi-colon and comma).  There is also a discussion regarding `PRINT "X="X` where the *x* variable will print immediately after the string constant.
-* [GOSUB](GOSUB) and [RETURN](RETURN) introduced. Can optionally be written as `GO SUB`.
-* A new feature under "Some Ideas for More Advanced Programmers" is the [REM](REM) keyword.
-* This manual also includes a section for "CARDBASIC".
-   - Arrays are limited to 1000 components in any one vector or list; no matrix or table dimension may exceed 500 and total number of components in all vectors and matrices (lists and tables) may not exceed 4000.
-   - Matrices must start with component 1 (not 0).
-   - Although matrices can be used in regular math functions/statements after they've been DIM (DIM required), a matrix is not a matrix until the first MAT command is applied.  
+- Mention of minus sign for numbers.
+- Mention of operator precedence; `(), ^, */, +-` with the `*/+-` being done left to right.
+- Discusses *arrays* in the context of "Lists" (single-dimensional) and "Tables" (two-dimensional). They must be a single letter variable name. The dimensions are initialized automatically 0 to 10; the [DIM](DIM) statement allows increasing (or decreasing) the upper bound.
+- The [INT](INT) statement is mentioned in the May documentation, but the details are in the missing "Part II".  In this manual, it is clear that [INT](INT) is very different in this BASIC than in the Microsoft variants.
+  - "round numbers to the nearest whole integer", "operates by chopping off the fractional part"; which is different in newer BASIC versions, which *truncates*.
+- [PRINT](PRINT) introduces the "packed form of output" using the semi-colon character.  Instead of moving a *full zone* using the comma (which is 6 or more characters *depending*), it will "move next multiple of 3 characters". It is also mentioned that the [SPC](SPC) and [TAB](TAB) will hold off the CR (like semi-colon and comma).  There is also a discussion regarding `PRINT "X="X` where the *x* variable will print immediately after the string constant.
+- [GOSUB](GOSUB) and [RETURN](RETURN) introduced. Can optionally be written as `GO SUB`.
+- A new feature under "Some Ideas for More Advanced Programmers" is the [REM](REM) keyword.
+- This manual also includes a section for "CARDBASIC".
+  - Arrays are limited to 1000 components in any one vector or list; no matrix or table dimension may exceed 500 and total number of components in all vectors and matrices (lists and tables) may not exceed 4000.
+  - Matrices must start with component 1 (not 0).
+  - Although matrices can be used in regular math functions/statements after they've been DIM (DIM required), a matrix is not a matrix until the first MAT command is applied.  
 
-## Keywords
+## Keywords ("The Second")
 
 - [DIM](DIM)
 - [GOSUB](GOSUB)
@@ -98,13 +100,13 @@ will be referring to the original release as "The First".
 - [MAT](MAT) C = [INV](INV)(A) ' Inverse.
 - [MAT](MAT) C = (k)*A ' Constant multiple, note parentheses.
 
-## Commands
+## Commands ("The Second")
 
 - SCRATCH ' Similar to NEW except retains *filename*.
 
 ## "The Third" circa 1966
 
-### Specs
+### Specs ("The Third")
 
 - `MAT` merged with main from *CARDBASIC*.
 - Added [SGN](SGN) and [RESTORE](RESTORE).
@@ -135,7 +137,7 @@ will be referring to the original release as "The First".
 ## "The Sixth" circa September 1971
 
 - Mention of [CHAIN](CHAIN) and [CALL](CALL). (RESEARCH PENDING)
-- Introduction of [SUB...END SUB](SUB...END SUB]. (RESEARCH PENDING)
+- Introduction of [SUB...END SUB](SUB...END SUB). (RESEARCH PENDING)
 - Move to utilize file numbers. (RESEARCH PENDING)
 
 ## "The Seventh" circa ????
