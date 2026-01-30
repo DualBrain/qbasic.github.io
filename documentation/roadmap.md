@@ -45,7 +45,7 @@ The keywords below have been implemented if presented as a link to the documenta
 
 ### Simple I/O
 
-[CLS](CLS), [CSRLIN](CSRLIN), [INKEY$](INKEY$), [INPUT](INPUT), [INPUT$](INPUT$), [LINE INPUT](LINE-INPUT), [LOCATE](LOCATE), [POS](POS), [PRINT](PRINT), PRINT USING, [SPC](SPC), [TAB](TAB), VIEW PRINT, WIDTH, WRITE
+[CLS](CLS), [CSRLIN](CSRLIN), [INKEY$](INKEY$), [INPUT](INPUT), [INPUT$](INPUT$), [LINE INPUT](LINE-INPUT), [LOCATE](LOCATE), [POS](POS), [PRINT](PRINT), [PRINT USING](PRINT-USING), [SPC](SPC), [TAB](TAB), VIEW PRINT, WIDTH, WRITE
 
 ### Error Trapping
 
@@ -77,9 +77,7 @@ LPOS, LPRINT, LPRINT USING, WIDTH LPRINT
 
 ### Devices - Communications Port
 
-COM ON/OFF/STOP
-ON COM GOSUB
-OPEN COM
+COM ON/OFF/STOP, ON COM GOSUB, OPEN COM
 
 ### Devices - Files
 
