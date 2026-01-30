@@ -13,8 +13,6 @@ The following has been implemented (to one degree or another):
 - `+ - * / \ ^ () = < > >= <= <>`
 - Operator Precedence ([IMP](IMP), [EQV](EQV), [XOR](XOR), [OR](OR), [AND](AND), [NOT](NOT), `= > >= < <= <>`, `+ - binary`, [MOD](MOD), `\`, `* /`, `+ - unary`, `^`)
 
-While the following still needs to be implemented:
-
 The keywords below have been implemented if presented as a link to the documentation; otherwise, still needs to be handled.
 
 ### Variables and Types
